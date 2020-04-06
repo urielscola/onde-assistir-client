@@ -1,44 +1,47 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "onde-assistir-client",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "",
+  "version": "0.0.1",
+  "author": "Uriel Scola",
   "dependencies": {
-    "gatsby": "^2.19.45",
+    "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.44",
-    "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-plugin-react-helmet": "^3.1.24",
-    "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-plugin-styled-components": "^3.2.1",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.56",
-    "gatsby-transformer-sharp": "^2.3.19",
+    "gatsby-source-mongodb": "^2.2.1",
+    "gatsby-transformer-sharp": "^2.3.16",
+    "polished": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-responsive": "^8.0.3",
+    "read-more-react": "^1.0.10",
+    "styled-components": "^5.0.1",
+    "styled-icons": "^10.2.1",
+    "styled-media-query": "^2.1.2",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.19.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
+  "resolutions": {
+    "sharp": "0.24.0"
+  },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "cross-env SHARP_IGNORE_GLOBAL_LIBVIPS=true gatsby build",
+    "develop": "cross-env SHARP_IGNORE_GLOBAL_LIBVIPS=true && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "cross-env SHARP_IGNORE_GLOBAL_LIBVIPS=true npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "clean": "gatsby clean"
   }
 }

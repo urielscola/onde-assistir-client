@@ -1,21 +1,37 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import { SEO, Layout } from '../components';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const IndexPage = () => {
+  const items = useStaticQuery(graphql`
+    query {
+      allMongodbTestItems(limit: 15) {
+        edges {
+          node {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `);
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  const data = items.allMongodbTestItems.edges;
+  console.log(data);
 
-export default IndexPage
+  return (
+    <Layout>
+      <SEO title="Home" />
+      {data.map(d => (
+        <>
+          <Link to={d.node.slug} title={d.node.title}>
+            {d.node.title}
+          </Link>
+          <br />
+        </>
+      ))}
+    </Layout>
+  );
+};
+
+export default IndexPage;

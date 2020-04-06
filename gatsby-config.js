@@ -1,8 +1,11 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Onde assistir online`,
+    description: ``,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -10,11 +13,16 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        checkSupportedExtensions: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -24,11 +32,28 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/gatsby-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Droid Sans', 'Baloo 2'],
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        connectionString: process.env.CONNECTION_STRING,
+        auth: { user: process.env.DB_USER, password: process.env.DB_PASS },
+        dbName: process.env.DB_NAME,
+        collection: [`items`, `tags`],
+      },
+    },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-offline`,
+    'gatsby-plugin-root-import',
   ],
-}
+};
