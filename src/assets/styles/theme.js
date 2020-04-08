@@ -27,13 +27,13 @@ const typography = {
   fontSizeNormal: '16px',
   fontSizeMedium: '18px',
   fontSizeLarge: '20px',
-  fontSizeXLarge: '24px',
+  fontSizeXLarge: '28px',
   fontWeightLight: 300,
   fontWeightNormal: 400,
   fontWeightBold: 700,
   fontSpacing: '0.3px',
-  fontFamilyNormal: '"Droid Sans"',
-  fontFamilyTitle: '"Baloo 2"',
+  // fontFamilyNormal: '"Droid Sans"',
+  // fontFamilyTitle: '"Baloo 2"',
 };
 
 const layout = {

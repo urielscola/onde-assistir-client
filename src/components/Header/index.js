@@ -12,8 +12,8 @@ const Header = ({ siteTitle }) => (
       </Link>
       <Responsive.NotDesktop>
         <Styles.MobileActions>
-          <Icon variant="search" size={30} />
-          <Icon variant="menu" size={30} />
+          <Icon variant="search" size={35} />
+          <Icon variant="menu" size={35} />
         </Styles.MobileActions>
       </Responsive.NotDesktop>
     </Container>

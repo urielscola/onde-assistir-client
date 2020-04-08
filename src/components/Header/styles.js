@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  padding: 15px 0;
-  box-shadow: ${({ theme }) => theme.boxShadow};
+  padding: 10px 0;
   background-color: ${({ theme }) => theme.white};
 
   > div {
@@ -17,6 +16,6 @@ export const MobileActions = styled.div`
   justify-content: center;
 
   > div {
-    margin-left: 15px;
+    margin-left: 20px;
   }
 `;

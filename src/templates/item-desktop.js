@@ -1,24 +1,26 @@
 import React from 'react';
 import {
-  Image,
+  // Image,
   Responsive,
-  FlexDiv,
-  LabelValue,
-  Spacing,
-  ReadMore,
+  // FlexDiv,
+  // LabelValue,
+  // Spacing,
+  // ReadMore,
 } from 'src/components';
-import * as Styles from './item-styles';
+// import * as Styles from './item-styles';
 
-const ItemMobile = ({
-  payload,
-  allowedSources,
-  sourcesImages,
-  ratingImages,
-  data,
-}) => {
+const ItemMobile = (
+  {
+    // payload,
+    // allowedSources,
+    // sourcesImages,
+    // ratingImages,
+    // data,
+  }
+) => {
   return (
     <Responsive.Desktop>
-      <Spacing appearence="medium" />
+      {/* <Spacing appearence="medium" />
       <Styles.SmallContainer>
         <Styles.Column maxWidth="35%">
           <Image src={data.cover.childImageSharp} />
@@ -87,8 +89,8 @@ const ItemMobile = ({
               />
             )}
           </Styles.Box>
-        </Styles.Column>
-      </Styles.SmallContainer>
+        </Styles.Column> 
+      </Styles.SmallContainer>*/}
     </Responsive.Desktop>
   );
 };

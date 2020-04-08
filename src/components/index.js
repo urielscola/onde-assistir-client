@@ -11,4 +11,5 @@ export { default as Responsive } from './Responsive';
 export { default as LabelValue } from './LabelValue';
 export { default as Spacing } from './Spacing';
 export { default as ReadMore } from './ReadMore';
+export { default as Topic } from './Topic';
 export { default as Thumb } from './Thumb';

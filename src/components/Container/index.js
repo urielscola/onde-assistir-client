@@ -1,15 +1,8 @@
 import React from 'react';
+import * as Styles from './styles';
 
 const Container = ({ children }) => (
-  <div
-    style={{
-      margin: `0 auto`,
-      maxWidth: 960,
-      padding: `0 1.0875rem`,
-    }}
-  >
-    {children}
-  </div>
+  <Styles.Container>{children}</Styles.Container>
 );
 
 export default Container;

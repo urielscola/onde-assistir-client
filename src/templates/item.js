@@ -73,6 +73,7 @@ export const query = graphql`
           slug
           id
           tags
+          theme
           title
           type
           year
