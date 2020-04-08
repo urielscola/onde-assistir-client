@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Header, Footer } from '../index';
+import { Header, Footer, MobileMenu } from '../index';
 import { GlobalStyles, theme } from 'src/assets/styles';
+import { ApplicationProvider } from 'src/contexts/application';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -19,11 +20,14 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles theme={theme} />
-      <ThemeProvider theme={theme}>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
-        <Footer />
-      </ThemeProvider>
+      <ApplicationProvider>
+        <ThemeProvider theme={theme}>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <main>{children}</main>
+          <Footer />
+          <MobileMenu isOpen={true} />
+        </ThemeProvider>
+      </ApplicationProvider>
     </>
   );
 };

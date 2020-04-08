@@ -27,7 +27,7 @@ const typography = {
   fontSizeNormal: '16px',
   fontSizeMedium: '18px',
   fontSizeLarge: '20px',
-  fontSizeXLarge: '28px',
+  fontSizeXLarge: '26px',
   fontWeightLight: 300,
   fontWeightNormal: 400,
   fontWeightBold: 700,

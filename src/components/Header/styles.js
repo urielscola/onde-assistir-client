@@ -15,7 +15,21 @@ export const MobileActions = styled.div`
   display: flex;
   justify-content: center;
 
-  > div {
+  > div,
+  button {
     margin-left: 20px;
+  }
+`;
+
+export const Menu = styled.nav`
+  ul {
+    display: flex;
+
+    li {
+      margin-left: 35px;
+      a {
+        font-weight: ${({ theme }) => theme.fontWeightBold};
+      }
+    }
   }
 `;

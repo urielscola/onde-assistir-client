@@ -5,7 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const template = path.resolve(`src/templates/item.js`);
   const items = await graphql(`
     query {
-      allMongodbTestItems(limit: 15) {
+      allMongodbTestItems(limit: 25) {
         edges {
           node {
             id

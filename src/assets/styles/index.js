@@ -1,3 +1,3 @@
 export * from './global';
 export * from './theme';
-// export * from './breakpoints';
+export * from './breakpoints';

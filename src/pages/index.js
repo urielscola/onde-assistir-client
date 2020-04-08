@@ -5,7 +5,7 @@ import { SEO, Layout } from '../components';
 const IndexPage = () => {
   const items = useStaticQuery(graphql`
     query {
-      allMongodbTestItems(limit: 15) {
+      allMongodbTestItems(limit: 25) {
         edges {
           node {
             title

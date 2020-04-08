@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Layout, SEO } from 'src/components';
-import ItemMobile from './item-mobile';
-import ItemDesktop from './item-desktop';
+import ItemMobile from './item/item-mobile';
+import ItemDesktop from './item/item-desktop';
 
 const ALLOWED_SOURCES = [
   'Amazon Prime Video',
@@ -50,15 +50,6 @@ const Item = ({ data, ...rest }) => {
         ratingImages={ratingImages}
         sourcesImages={sourcesImages}
       />
-      {/* <Spacing appearence="x-small" />
-      {data.recommended.edges.length && (
-        <>
-          <Styles.Subtopic>VOCÊ TAMBÉM PODE GOSTAR</Styles.Subtopic>
-          {data.recommended.edges.slice(0, 3).map(item => (
-            <Thumb data={item} />
-          ))}
-        </>
-      )} */}
     </Layout>
   );
 };

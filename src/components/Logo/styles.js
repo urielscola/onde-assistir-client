@@ -7,8 +7,6 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
-  padding-left: 5px;
-  padding-top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;

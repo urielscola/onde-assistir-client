@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import { space } from 'styled-system';
+import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
   font-size: ${({ theme }) => theme.fontSizeSmall};
+
+  ${medias.greaterThan('md')`
+    font-size: ${({ theme }) => theme.fontSizeNormal};
+  `}
+
   ${space};
 
   .displayed-text {

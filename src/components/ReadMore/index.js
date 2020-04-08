@@ -2,13 +2,13 @@ import React from 'react';
 import ReadMoreReact from 'read-more-react';
 import * as Styles from './styles';
 
-const ReadMore = ({ text }) => (
+const ReadMore = ({ text, visible = 100 }) => (
   <Styles.Container>
     <ReadMoreReact
       text={text}
-      min={100}
-      ideal={100}
-      max={150}
+      min={visible}
+      ideal={visible}
+      max={visible + 50}
       readMoreText="ver mais"
     />
   </Styles.Container>

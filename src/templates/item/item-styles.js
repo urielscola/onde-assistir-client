@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Image as GatsbyImage } from 'src/components';
 import { space, typography } from 'styled-system';
+import { medias } from 'src/assets/styles';
 
 export const Column = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ export const Column = styled.div`
 
 export const Bar = styled.div`
   background-color: ${({ bg }) => bg || '#ccc'};
-  height: 33vh;
+  min-height: 33vh;
   position: relative;
   box-shadow: ${({ theme }) => theme.boxShadow};
   z-index: 0;
@@ -28,29 +28,15 @@ export const Bar = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  ${medias.greaterThan('md')`
+    min-height: 180px;
+  `}
 `;
-
-// export const Title = styled.h1`
-//   font-weight: 700;
-//   font-size: ${({ theme }) => theme.fontSizeXLarge};
-//   font-family: ${({ theme }) => theme.fontFamilyTitle};
-//   span {
-//     font-size: ${({ theme }) => theme.fontSizeNormal};
-//     font-weight: 400;
-//   }
-
-//   @media (min-width: 767px) {
-//     font-size: 28px;
-//     margin-bottom: 5px;
-//     span {
-//       font-size: ${({ theme }) => theme.fontSizeXLarge};
-//     }
-//   }
-// `;
 
 export const Year = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
-  font-size: ${({ theme }) => theme.fontSizeMedium};
+  font-size: ${({ theme }) => theme.fontSizeNormal};
   font-weight: ${({ theme }) => theme.fontWeightBold};
   color: ${({ theme }) => theme.white};
   display: inline-block;
@@ -70,6 +56,10 @@ export const Title = styled.h1`
   line-height: 1.25;
   ${space};
   ${typography};
+
+  ${medias.greaterThan('md')`
+    font-size: 32px;
+  `}
 `;
 
 export const Ratings = styled.div`
