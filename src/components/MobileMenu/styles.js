@@ -4,6 +4,7 @@ export const Menu = styled.nav`
   display: flex;
   flex-direction: column;
   width: 75%;
+  z-index: 2;
   background: ${({ theme }) => theme.offWhite};
   height: 100vh;
   text-align: left;
@@ -31,7 +32,8 @@ export const Menu = styled.nav`
 `;
 
 export const Offset = styled.div`
-  width: 25%;
+  width: 100%;
+  z-index: 1;
   position: fixed;
   top: 83px;
   height: 100vh;
