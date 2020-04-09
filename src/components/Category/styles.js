@@ -4,9 +4,15 @@ import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
   position: relative;
-  width: 23%;
-  margin-bottom: 2%;
+  width: 100%;
+  padding: 0 10px;
   box-shadow: ${({ theme }) => theme.boxShadow};
+
+  ${medias.greaterThan('md')`
+    margin-bottom: 2%;
+    padding: 0;
+    width: 23%;
+  `}
 `;
 
 export const Background = styled.div`

@@ -5,7 +5,9 @@ import {
   Container,
   Layout,
   Topic,
+  Slider,
   Thumb,
+  Responsive,
   Spacing,
   Category,
   FlexDiv,
@@ -67,66 +69,130 @@ const Home = () => {
       <SEO title="Home" />
       <Banner />
       <Spacing appearence="medium" />
+
       <div>
         <Container>
           <Topic title="categorias" />
           <Spacing appearence="x-small" />
-
-          <FlexDiv flexWrap="wrap" justifyContent="space-between">
-            {CATEGORIES.map(category => (
-              <Category
-                key={category.title}
-                title={category.title}
-                slug={category.slug}
-              />
-            ))}
-          </FlexDiv>
+          <Responsive.NotDesktop>
+            <Slider
+              settings={{
+                responsive: [
+                  {
+                    breakpoint: 992,
+                    settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 3,
+                    },
+                  },
+                  {
+                    breakpoint: 767,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
+                    },
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                    },
+                  },
+                ],
+              }}
+            >
+              {CATEGORIES.map(category => (
+                <Category
+                  key={category.title}
+                  title={category.title}
+                  slug={category.slug}
+                />
+              ))}
+            </Slider>
+            <Spacing appearence="small" />
+          </Responsive.NotDesktop>
+          <Responsive.Desktop>
+            <FlexDiv flexWrap="wrap" justifyContent="space-between">
+              {CATEGORIES.map(category => (
+                <Category
+                  key={category.title}
+                  title={category.title}
+                  slug={category.slug}
+                />
+              ))}
+            </FlexDiv>
+          </Responsive.Desktop>
         </Container>
       </div>
       <Spacing appearence="large" />
 
       <Container>
-        <Topic title="filmes populares" />
-        <Spacing appearence="x-small" />
-        <FlexDiv justifyContent="space-between">
-          {items.movies.edges
-            .filter(item => !!item.node.cover)
-            .map(item => (
-              <Thumb thumb={item} key={item.slug} />
-            ))}
-        </FlexDiv>
-        <Spacing appearence="small" />
-
-        <Topic title="filmes populares" />
-        <Spacing appearence="x-small" />
-        <FlexDiv justifyContent="space-between">
-          {items.movies.edges
-            .filter(item => !!item.node.cover)
-            .map(item => (
-              <Thumb thumb={item} key={item.slug} />
-            ))}
-        </FlexDiv>
-        <Spacing appearence="small" />
-
-        <Topic title="filmes populares" />
-        <Spacing appearence="x-small" />
-        <FlexDiv justifyContent="space-between">
-          {items.movies.edges
-            .filter(item => !!item.node.cover)
-            .map(item => (
-              <Thumb thumb={item} key={item.slug} />
-            ))}
-        </FlexDiv>
-        <Spacing appearence="x-large" />
+        <Responsive.NotDesktop>
+          <Topic title="filmes populares" />
+          <Spacing appearence="x-small" />
+          <Slider>
+            {items.movies.edges
+              .filter(item => !!item.node.cover)
+              .map(item => (
+                <Thumb thumb={item} key={item.cover} />
+              ))}
+          </Slider>
+          <Spacing appearence="x-large" />
+          <Topic title="series populares" />
+          <Spacing appearence="x-small" />
+          <Slider>
+            {items.movies.edges
+              .filter(item => !!item.node.cover)
+              .map(item => (
+                <Thumb thumb={item} key={item.cover} />
+              ))}
+          </Slider>
+          <Spacing appearence="x-large" />
+          <Topic title="animes populares" />
+          <Spacing appearence="x-small" />
+          <Slider>
+            {items.movies.edges
+              .filter(item => !!item.node.cover)
+              .map(item => (
+                <Thumb thumb={item} key={item.cover} />
+              ))}
+          </Slider>
+          <Spacing appearence="x-large" />
+        </Responsive.NotDesktop>
+        <Responsive.Desktop>
+          <Topic title="filmes populares" />
+          <Spacing appearence="x-small" />
+          <FlexDiv justifyContent="space-between">
+            {items.movies.edges
+              .filter(item => !!item.node.cover)
+              .map(item => (
+                <Thumb thumb={item} key={item.slug} />
+              ))}
+          </FlexDiv>
+          <Spacing appearence="medium" />
+          <Topic title="séries populares" />
+          <Spacing appearence="x-small" />
+          <FlexDiv justifyContent="space-between">
+            {items.movies.edges
+              .filter(item => !!item.node.cover)
+              .map(item => (
+                <Thumb thumb={item} key={item.slug} />
+              ))}
+          </FlexDiv>
+          <Spacing appearence="medium" />
+          <Topic title="animes populares" />
+          <Spacing appearence="x-small" />
+          <FlexDiv justifyContent="space-between">
+            {items.movies.edges
+              .filter(item => !!item.node.cover)
+              .map(item => (
+                <Thumb thumb={item} key={item.slug} />
+              ))}
+          </FlexDiv>
+          <Spacing appearence="large" />
+        </Responsive.Desktop>
       </Container>
-      {/* {data.map(d => (
-        <>
-          <Link to={d.node.slug} title={d.node.title}>
-            {d.node.title}
-          </Link>
-          <br />
-        </>
-      ))} */}
     </Layout>
   );
 };

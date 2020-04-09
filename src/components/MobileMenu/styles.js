@@ -10,7 +10,7 @@ export const Menu = styled.nav`
   text-align: left;
   padding: 3rem 2rem;
   border-right: 3px solid #666;
-  position: fixed;
+  position: absolute;
   top: 83px;
   left: 0;
   transform: translateX(-100%);
@@ -34,7 +34,7 @@ export const Menu = styled.nav`
 export const Offset = styled.div`
   width: 100%;
   z-index: 1;
-  position: fixed;
+  position: absolute;
   top: 83px;
   height: 100vh;
   right: 0;

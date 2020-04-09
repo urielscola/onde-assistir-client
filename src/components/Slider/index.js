@@ -22,8 +22,8 @@ const defaultSettings = {
     {
       breakpoint: 992,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 4,
+        slidesToScroll: 4,
       },
     },
     {
@@ -36,10 +36,14 @@ const defaultSettings = {
   ],
 };
 
-const Slider = ({ children }) => {
+const Slider = ({ children, settings }) => {
+  const options = {
+    ...defaultSettings,
+    ...settings,
+  };
   return (
     <Container>
-      <Slick {...defaultSettings}>{children}</Slick>
+      <Slick {...options}>{children}</Slick>
     </Container>
   );
 };
