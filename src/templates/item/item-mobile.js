@@ -3,11 +3,12 @@ import {
   Image,
   Responsive,
   FlexDiv,
-  LabelValue,
   Container,
   Spacing,
   ReadMore,
+  Thumb,
   Topic,
+  Slider,
 } from 'src/components';
 import * as Styles from './item-styles';
 import { Infos, Sources, Ratings } from './partials';
@@ -17,6 +18,7 @@ const ItemMobile = ({
   allowedSources,
   sourcesImages,
   ratingImages,
+  related,
   data,
 }) => {
   return (
@@ -54,6 +56,15 @@ const ItemMobile = ({
         <Spacing appearence="medium" />
 
         <Topic title="você também pode gostar" color={payload.theme} />
+        <Spacing appearence="x-small" />
+        <Slider>
+          {related.edges
+            .filter(item => !!item.node.cover)
+            .map(item => (
+              <Thumb thumb={item} key={item.cover} />
+            ))}
+        </Slider>
+        <Spacing appearence="large" />
       </Container>
     </Responsive.NotDesktop>
   );

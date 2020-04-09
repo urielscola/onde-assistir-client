@@ -3,10 +3,10 @@ import { space } from 'styled-system';
 import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
-  font-size: ${({ theme }) => theme.fontSizeSmall};
+  font-size: ${({ theme }) => theme.fontSizeNormal};
 
   ${medias.greaterThan('md')`
-    font-size: ${({ theme }) => theme.fontSizeNormal};
+    font-size: ${({ theme }) => theme.fontSizeMedium};
   `}
 
   ${space};

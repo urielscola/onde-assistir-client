@@ -17,7 +17,7 @@ export const Container = styled.div`
 export const Topic = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeightBold};
   color: ${({ theme }) => theme.fontPrimary};
-  font-size: ${({ theme }) => theme.fontSizeNormal};
+  font-size: ${({ theme }) => theme.fontSizeMedium};
   text-transform: uppercase;
   position: relative;
   padding-left: 10px;
