@@ -13,5 +13,7 @@ export { default as Spacing } from './Spacing';
 export { default as ReadMore } from './ReadMore';
 export { default as MobileMenu } from './MobileMenu';
 export { default as Slider } from './Slider';
+export { default as Banner } from './Banner';
 export { default as Topic } from './Topic';
+export { default as Category } from './Category';
 export { default as Thumb } from './Thumb';
