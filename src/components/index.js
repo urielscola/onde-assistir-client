@@ -12,5 +12,6 @@ export { default as LabelValue } from './LabelValue';
 export { default as Spacing } from './Spacing';
 export { default as ReadMore } from './ReadMore';
 export { default as MobileMenu } from './MobileMenu';
+export { default as Slider } from './Slider';
 export { default as Topic } from './Topic';
 export { default as Thumb } from './Thumb';

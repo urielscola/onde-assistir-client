@@ -14,7 +14,7 @@ const ALLOWED_SOURCES = [
   'Fox Premium',
 ];
 
-const Item = ({ data, ...rest }) => {
+const Item = ({ data }) => {
   const payload = data.item.edges[0].node;
 
   console.log(data);
@@ -41,6 +41,7 @@ const Item = ({ data, ...rest }) => {
         payload={payload}
         allowedSources={ALLOWED_SOURCES}
         ratingImages={ratingImages}
+        related={data.related}
         sourcesImages={sourcesImages}
       />
       <ItemDesktop
@@ -48,6 +49,7 @@ const Item = ({ data, ...rest }) => {
         payload={payload}
         allowedSources={ALLOWED_SOURCES}
         ratingImages={ratingImages}
+        related={data.related}
         sourcesImages={sourcesImages}
       />
     </Layout>
@@ -57,7 +59,7 @@ const Item = ({ data, ...rest }) => {
 export default Item;
 
 export const query = graphql`
-  query($id: String!, $cover: String) {
+  query($id: String!, $cover: String, $tags: [String], $type: String) {
     item: allMongodbTestItems(filter: { id: { eq: $id } }) {
       edges {
         node {
@@ -145,6 +147,18 @@ export const query = graphql`
       childImageSharp {
         fixed(width: 50) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    related: allMongodbTestItems(
+      limit: 9
+      filter: { tags: { in: $tags }, id: { ne: $id }, type: { eq: $type } }
+    ) {
+      edges {
+        node {
+          slug
+          title
+          cover
         }
       }
     }

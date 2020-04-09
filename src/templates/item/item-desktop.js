@@ -3,19 +3,20 @@ import {
   Image,
   Responsive,
   FlexDiv,
-  LabelValue,
   Spacing,
   Topic,
+  Thumb,
   Container,
   ReadMore,
 } from 'src/components';
 import * as Styles from './item-styles';
 import { Infos, Sources, Ratings } from './partials';
 
-const ItemMobile = ({
+const ItemDesktop = ({
   payload,
   allowedSources,
   sourcesImages,
+  related,
   ratingImages,
   data,
 }) => {
@@ -67,10 +68,18 @@ const ItemMobile = ({
         <Spacing appearence="x-large" />
 
         <Topic title="você também pode gostar" />
+        <Spacing appearence="x-small" />
+        <FlexDiv justifyContent="space-between">
+          {related.edges
+            .filter(item => !!item.node.cover)
+            .map(item => (
+              <Thumb thumb={item} key={item.slug} />
+            ))}
+        </FlexDiv>
         <Spacing appearence="x-large" />
       </Container>
     </Responsive.Desktop>
   );
 };
 
-export default ItemMobile;
+export default ItemDesktop;

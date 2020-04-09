@@ -25,7 +25,7 @@ const Header = ({ siteTitle = '' }) => {
           <Styles.Menu>
             <ul>
               {MENU_ITEMS.map(item => (
-                <li>
+                <li key={item.label}>
                   <Link to={item.link} title={item.label}>
                     {item.label}
                   </Link>

@@ -12,7 +12,7 @@ const MobileMenu = () => {
       <Styles.Menu isOpen={isMenuOpen}>
         <ul>
           {MENU_ITEMS.map(item => (
-            <li>
+            <li key={item.label}>
               <Link to={item.link} title={item.label}>
                 {item.label}
               </Link>

@@ -5,13 +5,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const template = path.resolve(`src/templates/item.js`);
   const items = await graphql(`
     query {
-      allMongodbTestItems(limit: 25) {
+      allMongodbTestItems(limit: 15) {
         edges {
           node {
             id
             slug
             cover
             tags
+            type
           }
         }
       }
@@ -32,6 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id: pages[i].node.id,
           cover: pages[i].node.cover,
           tags: pages[i].node.tags,
+          type: pages[i].node.type,
         },
       });
     }
