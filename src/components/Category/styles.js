@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import { flexbox, space, layout, position } from 'styled-system';
 import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`

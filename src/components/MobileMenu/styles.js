@@ -39,7 +39,7 @@ export const Offset = styled.div`
   height: 100vh;
   right: 0;
   transition: 0.3s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   opacity: 0;
   visibility: hidden;
 

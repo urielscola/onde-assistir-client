@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const queries = require('./src/utils/algolia');
+
 module.exports = {
   siteMetadata: {
     title: `Onde assistir online`,
@@ -55,5 +57,15 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-offline`,
     'gatsby-plugin-root-import',
+    {
+      resolve: `gatsby-plugin-algolia-search`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries,
+        chunkSize: 10000, // default: 1000
+        enablePartialUpdates: true,
+      },
+    },
   ],
 };

@@ -7,7 +7,7 @@ import { MENU_ITEMS } from 'src/utils';
 import * as Styles from './styles';
 
 const Header = ({ siteTitle = '' }) => {
-  const { isMenuOpen, toggleMenu } = useApplicationContext();
+  const { isMenuOpen, toggleMenu, toggleSearch } = useApplicationContext();
 
   return (
     <Styles.Container>
@@ -17,7 +17,7 @@ const Header = ({ siteTitle = '' }) => {
         </Link>
         <Responsive.NotDesktop>
           <Styles.MobileActions>
-            <Icon variant="search" size={35} />
+            <Icon variant="search" size={35} onClick={toggleSearch} />
             <Burguer isOpen={isMenuOpen} onClick={toggleMenu} />
           </Styles.MobileActions>
         </Responsive.NotDesktop>
@@ -31,6 +31,9 @@ const Header = ({ siteTitle = '' }) => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Icon variant="search" size={35} onClick={toggleSearch} />
+              </li>
             </ul>
           </Styles.Menu>
         </Responsive.Desktop>

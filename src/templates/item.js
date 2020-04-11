@@ -17,7 +17,7 @@ const ALLOWED_SOURCES = [
 const Item = ({ data }) => {
   const payload = data.item.edges[0].node;
 
-  console.log(data);
+  // console.log(data);
   const ratingImages = {
     'Rotten Tomatoes': data.rotten,
     IMDB: data.imdb,
