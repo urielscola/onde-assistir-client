@@ -1,7 +1,7 @@
 import React from 'react';
-import { Responsive, Container, Icon, Spacing } from 'src/components';
+import { Container, Icon, Spacing } from 'src/components';
 import { useApplicationContext } from 'src/contexts/application';
-import Algolia from './algolia';
+import Algolia from './Algolia';
 import * as Styles from './styles';
 
 const algolia = {
@@ -21,7 +21,7 @@ const Search = () => {
           onClick={toggleSearch}
           color="#fff"
           position="absolute"
-          right="10px"
+          right="20px"
           top="20px"
         />
         <Spacing apperance="x-large" />

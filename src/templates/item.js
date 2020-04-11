@@ -151,7 +151,7 @@ export const query = graphql`
       }
     }
     related: allMongodbTestItems(
-      limit: 9
+      limit: 6
       filter: { tags: { in: $tags }, id: { ne: $id }, type: { eq: $type } }
     ) {
       edges {

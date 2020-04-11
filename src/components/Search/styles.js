@@ -4,7 +4,7 @@ import { space } from 'styled-system';
 export const Overlay = styled.div`
   position: absolute;
   left: 0;
-  padding: 20px 0;
+  /* padding: 20px 0; */
   z-index: 1;
   top: 0;
   width: 100%;

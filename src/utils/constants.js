@@ -1,15 +1,15 @@
 export const MENU_ITEMS = [
   {
     label: 'Filmes',
-    link: '/categoria/filmes',
+    link: '/categorias/filmes',
   },
   {
     label: 'Séries',
-    link: '/categoria/series',
+    link: '/categorias/series',
   },
   {
     label: 'Animes',
-    link: '/categoria/animes',
+    link: '/categorias/animes',
   },
   {
     label: 'Contato',

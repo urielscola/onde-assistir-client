@@ -23,7 +23,7 @@ export const Container = styled.div`
 
   ${medias.greaterThan('md')`
     padding: 0;
-    width: 115px;
+    width: 170px;
   `}
 `;
 
