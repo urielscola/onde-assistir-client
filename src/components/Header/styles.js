@@ -24,6 +24,7 @@ export const MobileActions = styled.div`
 export const Menu = styled.nav`
   ul {
     display: flex;
+    align-items: center;
 
     li {
       margin-left: 35px;

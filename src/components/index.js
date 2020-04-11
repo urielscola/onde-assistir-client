@@ -17,3 +17,5 @@ export { default as Banner } from './Banner';
 export { default as Topic } from './Topic';
 export { default as Category } from './Category';
 export { default as Thumb } from './Thumb';
+export { default as Search } from './Search';
+export { default as Scrollable } from './Scrollable';
