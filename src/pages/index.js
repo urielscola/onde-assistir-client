@@ -52,7 +52,7 @@ const CATEGORIES = [
 const Home = () => {
   const items = useStaticQuery(graphql`
     query {
-      movies: allMongodbTestItems(limit: 9, filter: { type: { eq: "movie" } }) {
+      movies: allMongodbTestItems(limit: 6, filter: { type: { eq: "movie" } }) {
         edges {
           node {
             title
@@ -163,7 +163,7 @@ const Home = () => {
         <Responsive.Desktop>
           <Topic title="filmes populares" />
           <Spacing appearence="x-small" />
-          <FlexDiv justifyContent="space-between">
+          <FlexDiv justifyContent="space-between" flexWrap="wrap">
             {items.movies.edges
               .filter(item => !!item.node.cover)
               .map(item => (
@@ -173,7 +173,7 @@ const Home = () => {
           <Spacing appearence="medium" />
           <Topic title="séries populares" />
           <Spacing appearence="x-small" />
-          <FlexDiv justifyContent="space-between">
+          <FlexDiv justifyContent="space-between" flexWrap="wrap">
             {items.movies.edges
               .filter(item => !!item.node.cover)
               .map(item => (
@@ -183,7 +183,7 @@ const Home = () => {
           <Spacing appearence="medium" />
           <Topic title="animes populares" />
           <Spacing appearence="x-small" />
-          <FlexDiv justifyContent="space-between">
+          <FlexDiv justifyContent="space-between" flexWrap="wrap">
             {items.movies.edges
               .filter(item => !!item.node.cover)
               .map(item => (

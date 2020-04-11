@@ -69,7 +69,7 @@ const ItemDesktop = ({
 
         <Topic title="você também pode gostar" />
         <Spacing appearence="x-small" />
-        <FlexDiv justifyContent="space-between">
+        <FlexDiv justifyContent="space-between" flexWrap="wrap">
           {related.edges
             .filter(item => !!item.node.cover)
             .map(item => (

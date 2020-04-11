@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { FlexDiv, Spacing } from 'src/components';
+import { FlexDiv } from 'src/components';
 import * as Styles from './styles';
 
 const Hit = ({ hit }) => (

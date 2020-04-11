@@ -22,6 +22,10 @@ export const Menu = styled.nav`
     transform: translateX(0);
   `};
 
+  li {
+    margin-bottom: 10px;
+  }
+
   a {
     font-size: 2rem;
     text-transform: uppercase;
