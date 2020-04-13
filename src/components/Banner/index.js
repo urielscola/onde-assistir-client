@@ -1,12 +1,16 @@
 import React from 'react';
-import { Container } from '../index';
+import { Container, Particles } from '../index';
 import * as Styles from './styles';
 
 const Banner = () => (
   <Styles.Container>
     <Container>
       <Styles.Background>
-        <Styles.Title>Existem mais de 14 serviços de stream</Styles.Title>
+        <Particles />
+        <Styles.Title>
+          7 serviços de stream, <br />
+          Uma só pesquisa.
+        </Styles.Title>
       </Styles.Background>
     </Container>
   </Styles.Container>

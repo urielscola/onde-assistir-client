@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
 
   img {
     border-style: none;
-    /* width: 100%; */
+    width: 100%;
   }
 
   button,

@@ -13,41 +13,7 @@ import {
   FlexDiv,
   Banner,
 } from '../components';
-
-const CATEGORIES = [
-  {
-    link: '/categoria/acao',
-    title: 'Ação',
-  },
-  {
-    link: '/categoria/misterio',
-    title: 'Mistério',
-  },
-  {
-    link: '/categoria/drama',
-    title: 'Drama',
-  },
-  {
-    link: '/categoria/anime',
-    title: 'Anime',
-  },
-  {
-    link: '/categoria/romance',
-    title: 'Romance',
-  },
-  {
-    link: '/categoria/esporte',
-    title: 'Esporte',
-  },
-  {
-    link: '/categoria/luta',
-    title: 'Luta',
-  },
-  {
-    link: '/categoria/desenho',
-    title: 'Desenho',
-  },
-];
+import { CATEGORIES } from 'src/utils';
 
 const Home = () => {
   const items = useStaticQuery(graphql`
@@ -81,33 +47,29 @@ const Home = () => {
                   {
                     breakpoint: 992,
                     settings: {
-                      slidesToShow: 3,
-                      slidesToScroll: 3,
+                      slidesToShow: 4,
+                      slidesToScroll: 4,
                     },
                   },
                   {
                     breakpoint: 767,
                     settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 2,
+                      slidesToShow: 3,
+                      slidesToScroll: 3,
                     },
                   },
                   {
                     breakpoint: 480,
                     settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
+                      slidesToShow: 2,
+                      slidesToScroll: 2,
                     },
                   },
                 ],
               }}
             >
               {CATEGORIES.map(category => (
-                <Category
-                  key={category.title}
-                  title={category.title}
-                  slug={category.slug}
-                />
+                <Category key={category.title} category={category} />
               ))}
             </Slider>
             <Spacing appearence="small" />
@@ -115,11 +77,7 @@ const Home = () => {
           <Responsive.Desktop>
             <FlexDiv flexWrap="wrap" justifyContent="space-between">
               {CATEGORIES.map(category => (
-                <Category
-                  key={category.title}
-                  title={category.title}
-                  slug={category.slug}
-                />
+                <Category key={category.title} category={category} />
               ))}
             </FlexDiv>
           </Responsive.Desktop>

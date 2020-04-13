@@ -12,8 +12,8 @@ const MobileMenu = () => {
       <Styles.Menu isOpen={isMenuOpen}>
         <ul>
           {MENU_ITEMS.map(item => (
-            <li key={item.label} onClick={toggleMenu}>
-              <Link to={item.link} title={item.label}>
+            <li key={item.label}>
+              <Link to={item.link} title={item.label} onClick={toggleMenu}>
                 {item.label}
               </Link>
             </li>

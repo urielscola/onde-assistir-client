@@ -32,8 +32,7 @@ const typography = {
   fontWeightNormal: 400,
   fontWeightBold: 700,
   fontSpacing: '0.3px',
-  // fontFamilyNormal: '"Droid Sans"',
-  // fontFamilyTitle: '"Baloo 2"',
+  fontFamilyPrimary: '"Roboto"',
 };
 
 const layout = {

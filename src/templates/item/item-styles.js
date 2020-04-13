@@ -65,11 +65,13 @@ export const Title = styled.h1`
 export const Ratings = styled.div`
   color: ${({ theme }) => theme.white};
   display: flex;
-  margin-right: 10px;
-  margin-bottom: 10px;
   align-items: center;
-  > div {
-    margin-right: 7px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+
+  img {
+    margin-right: 5px;
+    width: 20px;
   }
 
   @media (min-width: 767px) {
@@ -94,6 +96,7 @@ export const Badge = styled.div`
   margin-right: 10px;
   img {
     border-radius: 5px;
+    width: 50px;
   }
 
   @media (min-width: 767px) {

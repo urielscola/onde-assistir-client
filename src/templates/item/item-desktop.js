@@ -12,14 +12,7 @@ import {
 import * as Styles from './item-styles';
 import { Infos, Sources, Ratings } from './partials';
 
-const ItemDesktop = ({
-  payload,
-  allowedSources,
-  sourcesImages,
-  related,
-  ratingImages,
-  data,
-}) => {
+const ItemDesktop = ({ payload, related }) => {
   return (
     <Responsive.Desktop>
       <Styles.Bar bg={payload.theme} />
@@ -29,7 +22,7 @@ const ItemDesktop = ({
             <FlexDiv>
               <Styles.Column maxWidth="200px">
                 <FlexDiv flexDirection="column">
-                  <Image src={data.cover.childImageSharp} />
+                  <Image src={payload.cover} title={payload.title} />
                   <Spacing appearence="small" />
 
                   <Infos payload={payload} />
@@ -38,10 +31,7 @@ const ItemDesktop = ({
               <Styles.Column marginLeft="35px">
                 <Styles.Year>{payload.year}</Styles.Year>
                 <Styles.Title>{payload.title}</Styles.Title>
-                <Ratings
-                  ratings={payload.ratings}
-                  ratingImages={ratingImages}
-                />
+                <Ratings ratings={payload.ratings} />
                 <Spacing appearence="large" />
 
                 <Topic title="sinopse" color={payload.theme}>
@@ -54,11 +44,7 @@ const ItemDesktop = ({
                   marginBottom="15px"
                   color={payload.theme}
                 >
-                  <Sources
-                    sources={payload.sources}
-                    allowedSources={allowedSources}
-                    sourcesImages={sourcesImages}
-                  />
+                  <Sources sources={payload.sources} />
                 </Topic>
               </Styles.Column>
             </FlexDiv>
@@ -67,15 +53,17 @@ const ItemDesktop = ({
         </FlexDiv>
         <Spacing appearence="x-large" />
 
-        <Topic title="você também pode gostar" />
-        <Spacing appearence="x-small" />
-        <FlexDiv justifyContent="space-between" flexWrap="wrap">
-          {related.edges
-            .filter(item => !!item.node.cover)
-            .map(item => (
-              <Thumb thumb={item} key={item.slug} />
-            ))}
-        </FlexDiv>
+        {related.length > 0 && (
+          <>
+            <Topic title="você também pode gostar" />
+            <Spacing appearence="x-small" />
+            <FlexDiv justifyContent="space-between" flexWrap="wrap">
+              {related.map(item => (
+                <Thumb thumb={item} key={item.slug} />
+              ))}
+            </FlexDiv>
+          </>
+        )}
         <Spacing appearence="x-large" />
       </Container>
     </Responsive.Desktop>

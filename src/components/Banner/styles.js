@@ -7,7 +7,7 @@ export const Container = styled.div`
   margin-bottom: 2%;
   display: flex;
   align-items: center;
-  background-color: ${({ theme }) => theme.fontPrimary};
+  background-color: ${({ theme }) => theme.fontPrimaryLighten};
   box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
@@ -16,15 +16,21 @@ export const Background = styled.div`
   width: 100%;
   padding: 20px;
   height: 100%;
+
+  ${medias.greaterThan('md')`
+    padding: 30px 40px;
+  `}
 `;
 
 export const Title = styled.h2`
   text-transform: uppercase;
   font-size: 32px;
+  text-align: center;
   color: white;
+  font-family: ${({ theme }) => theme.fontFamilyPrimary};
   font-weight: ${({ theme }) => theme.fontWeightBold};
 
   ${medias.greaterThan('md')`
-    font-size: 44px;
+    font-size: 56px;
   `}
 `;

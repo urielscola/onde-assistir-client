@@ -13,14 +13,7 @@ import {
 import * as Styles from './item-styles';
 import { Infos, Sources, Ratings } from './partials';
 
-const ItemMobile = ({
-  payload,
-  allowedSources,
-  sourcesImages,
-  ratingImages,
-  related,
-  data,
-}) => {
+const ItemMobile = ({ payload, related }) => {
   return (
     <Responsive.NotDesktop>
       <Styles.Bar bg={payload.theme} />
@@ -29,10 +22,10 @@ const ItemMobile = ({
           <Styles.Column maxWidth="50%">
             <Styles.Year>{payload.year}</Styles.Year>
             <Styles.Title>{payload.title}</Styles.Title>
-            <Ratings ratings={payload.ratings} ratingImages={ratingImages} />
+            <Ratings ratings={payload.ratings} />
           </Styles.Column>
           <Styles.Column maxWidth="50">
-            <Image src={data.cover.childImageSharp} />
+            <Image src={payload.cover} title={payload.title} />
           </Styles.Column>
         </FlexDiv>
 
@@ -46,24 +39,21 @@ const ItemMobile = ({
           marginBottom="15px"
           color={payload.theme}
         >
-          <Sources
-            sources={payload.sources}
-            allowedSources={allowedSources}
-            sourcesImages={sourcesImages}
-          />
+          <Sources sources={payload.sources} />
         </Topic>
         <Infos payload={payload} />
         <Spacing appearence="medium" />
-
-        <Topic title="você também pode gostar" color={payload.theme} />
-        <Spacing appearence="x-small" />
-        <Slider>
-          {related.edges
-            .filter(item => !!item.node.cover)
-            .map(item => (
-              <Thumb thumb={item} key={item.cover} />
-            ))}
-        </Slider>
+        {related.length > 0 && (
+          <>
+            <Topic title="você também pode gostar" color={payload.theme} />
+            <Spacing appearence="x-small" />
+            <Slider>
+              {related.map(item => (
+                <Thumb thumb={item} key={item.cover} />
+              ))}
+            </Slider>
+          </>
+        )}
         <Spacing appearence="large" />
       </Container>
     </Responsive.NotDesktop>
