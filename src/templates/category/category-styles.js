@@ -3,7 +3,8 @@ import { medias } from 'src/assets/styles';
 
 export const Banner = styled.div`
   height: 120px;
-  background-color: ${({ theme }) => theme.fontPrimary};
+  position: relative;
+  background-color: ${({ theme }) => theme.fontPrimaryLighten};
   box-shadow: ${({ theme }) => theme.boxShadow};
   margin-bottom: 45px;
   display: flex;
@@ -20,22 +21,27 @@ export const Banner = styled.div`
     text-shadow: 0px 1px 2px #333;
     letter-spacing: 1px;
     color: white;
+    font-family: ${({ theme }) => theme.fontFamilyPrimary};
     font-weight: ${({ theme }) => theme.fontWeightBold};
 
     ${medias.greaterThan('sm')`
-      font-size: 36px;
+      font-size: 50px;
     `};
   }
 `;
 
 export const Container = styled.div`
-  > div > div {
+  .infinite-scroll-component > div > div {
     margin-bottom: 30px;
     width: 50%;
   }
 
+  .infinite-scroll-component {
+    width: 100%; !important;
+  }
+
   ${medias.greaterThan('sm')`
-    > div > div {
+    .infinite-scroll-component > div > div {
       width: 25%;
       margin-right: 20px;
 
@@ -46,8 +52,9 @@ export const Container = styled.div`
   `}
 
   ${medias.greaterThan('md')`
-    > div > div {
+    .infinite-scroll-component > div > div {
       width: 170px;
+      margin-right: 18px;
     }
   `}
 `;

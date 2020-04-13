@@ -26,9 +26,15 @@ const Header = ({ siteTitle = '' }) => {
             <ul>
               {MENU_ITEMS.map(item => (
                 <li key={item.label}>
-                  <Link to={item.link} title={item.label}>
-                    {item.label}
-                  </Link>
+                  {item.label === 'Contato' ? (
+                    <a href="mailto:ondeassistironline@gmail.com">
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link to={item.link} title={item.label}>
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
               <li>

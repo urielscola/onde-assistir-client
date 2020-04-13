@@ -1,54 +1,49 @@
 const path = require(`path`);
+const PER_PAGE = 30;
+
+const getRelateds = (arr, howMany = 6) => {
+  const relateds = [];
+  const hashMap = {};
+  while (relateds.length < howMany) {
+    let item = arr[Math.floor(Math.random() * arr.length)];
+    if (!hashMap[item.node.title]) {
+      relateds.push(item);
+      hashMap[item.node.title] = true;
+    }
+  }
+
+  return relateds;
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const template = path.resolve(`src/templates/item.js`);
   const results = await graphql(`
     query {
-      main: allMongodbTestItems(limit: 15) {
+      items: allMongodbTestItems(limit: 50, filter: { cover: { ne: null } }) {
         edges {
           node {
             id
             slug
-            cover
+            theme
+            title
             tags
             type
-          }
-        }
-      }
-      movies: allMongodbTestItems(
-        limit: 15
-        filter: { type: { eq: "movie" } }
-      ) {
-        edges {
-          node {
-            slug
+            year
+            runtime
+            description
             cover
-            title
-          }
-        }
-      }
-      series: allMongodbTestItems(
-        limit: 15
-        filter: { type: { eq: "serie" } }
-      ) {
-        edges {
-          node {
-            slug
-            cover
-            title
-          }
-        }
-      }
-      animes: allMongodbTestItems(
-        limit: 15
-        filter: { tags: { in: ["Anime"] } }
-      ) {
-        edges {
-          node {
-            slug
-            cover
-            title
+            seasons
+            sources {
+              name
+              url
+              value
+            }
+            ratings {
+              name
+              url
+              value
+            }
           }
         }
       }
@@ -59,81 +54,84 @@ exports.createPages = async ({ graphql, actions }) => {
     throw results.errors;
   }
 
-  const pages = results.data.main.edges;
-  for (let i = 0; i < pages.length; i++) {
-    if (pages[i].node.cover) {
-      createPage({
-        path: '/' + pages[i].node.slug,
-        component: template,
-        context: {
-          id: pages[i].node.id,
-          cover: pages[i].node.cover,
-          tags: pages[i].node.tags,
-          type: pages[i].node.type,
-        },
-      });
-    }
+  const items = results.data.items.edges;
+  for (let i = 0; i < items.length; i++) {
+    createPage({
+      path: '/' + items[i].node.slug,
+      component: template,
+      context: {
+        item: items[i].node,
+        relateds: getRelateds(items),
+      },
+    });
   }
 
-  const movies = results.data.movies.edges;
-  const series = results.data.series.edges;
-  const animes = results.data.animes.edges;
+  const movies = items.filter(i => i.node.type === 'movie');
+  const series = items.filter(i => i.node.type === 'serie');
 
-  const PER_PAGE = 10;
-  const categoryTemplate = path.resolve(`src/templates/category-type.js`);
-  const tagTemplate = path.resolve(`src/templates/category-tag.js`);
+  const animes = items.filter(i => i.node.tags.includes('Anime'));
+  const action = items.filter(i => i.node.tags.includes('Ação'));
+  const mistery = items.filter(i => i.node.tags.includes('Mistério'));
+  const drama = items.filter(i => i.node.tags.includes('Drama'));
+  const romance = items.filter(i => i.node.tags.includes('Romance'));
+  const sport = items.filter(i => i.node.tags.includes('Esporte'));
+  const animation = items.filter(i => i.node.tags.includes('Animação'));
+  const family = items.filter(i => i.node.tags.includes('Família'));
+  const sciFy = items.filter(i => i.node.tags.includes('Ficção Científica'));
+  const war = items.filter(i => i.node.tags.includes('Guerra'));
+  const history = items.filter(i => i.node.tags.includes('História'));
+  const thriller = items.filter(i => i.node.tags.includes('Thriller'));
+  const militar = items.filter(i => i.node.tags.includes('Militar'));
+  const adventure = items.filter(i => i.node.tags.includes('Aventura'));
 
-  Array.from({ length: Math.ceil(movies.length / PER_PAGE) }).forEach(
-    (_, i) => {
-      if (movies[i].node.cover) {
-        createPage({
-          path: i === 0 ? `/categorias/filmes` : `/categorias/filmes/${i + 1}`,
-          component: categoryTemplate,
-          context: {
-            limit: PER_PAGE,
-            skip: i * PER_PAGE,
-            numPages: Math.ceil(movies.length / PER_PAGE),
-            type: 'movie',
-            currentPage: i + 1,
-          },
-        });
-      }
-    }
-  );
+  const categories = [
+    { type: 'anime', items: animes, path: 'animes' },
+    { type: 'action', items: action, path: 'acao' },
+    { type: 'mistery', items: mistery, path: 'misterio' },
+    { type: 'drama', items: drama, path: 'drama' },
+    { type: 'romance', items: romance, path: 'romance' },
+    { type: 'sport', items: sport, path: 'esportes' },
+    { type: 'animation', items: animation, path: 'desenhos' },
+    { type: 'sciFy', items: sciFy, path: 'sci-fi' },
+    { type: 'family', items: family, path: 'familia' },
+    { type: 'war', items: war, path: 'guerra' },
+    { type: 'history', items: history, path: 'historia' },
+    { type: 'thriller', items: thriller, path: 'thriller' },
+    { type: 'militar', items: militar, path: 'militar' },
+    { type: 'adventure', items: adventure, path: 'aventura' },
+  ];
 
-  Array.from({ length: Math.ceil(series.length / PER_PAGE) }).forEach(
-    (_, i) => {
-      if (series[i].node.cover) {
-        createPage({
-          path: i === 0 ? `/categorias/series` : `/categorias/series/${i + 1}`,
-          component: categoryTemplate,
-          context: {
-            limit: PER_PAGE,
-            skip: i * PER_PAGE,
-            numPages: Math.ceil(series.length / PER_PAGE),
-            type: 'serie',
-            currentPage: i + 1,
-          },
-        });
-      }
-    }
-  );
+  const categoryTemplate = path.resolve(`src/templates/category.js`);
 
-  Array.from({ length: Math.ceil(animes.length / PER_PAGE) }).forEach(
-    (_, i) => {
-      if (animes[i].node.cover) {
-        createPage({
-          path: i === 0 ? `/categorias/animes` : `/categorias/animes/${i + 1}`,
-          component: tagTemplate,
-          context: {
-            limit: PER_PAGE,
-            skip: i * PER_PAGE,
-            numPages: Math.ceil(animes.length / PER_PAGE),
-            tag: ['Anime'],
-            currentPage: i + 1,
-          },
-        });
-      }
-    }
-  );
+  createPage({
+    path: `/categorias/filmes`,
+    component: categoryTemplate,
+    context: {
+      items: movies,
+      type: 'movie',
+      perPage: PER_PAGE,
+    },
+  });
+
+  createPage({
+    path: `/categorias/series`,
+    component: categoryTemplate,
+    context: {
+      items: series,
+      type: 'serie',
+      perPage: PER_PAGE,
+    },
+  });
+
+  categories.forEach(category => {
+    createPage({
+      path: `/categorias/${category.path}`,
+      component: categoryTemplate,
+      context: {
+        items: category.items,
+        type: category.type,
+        perPage: PER_PAGE,
+      },
+    });
+  });
 };

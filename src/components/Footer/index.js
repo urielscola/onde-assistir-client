@@ -9,7 +9,9 @@ const Footer = () => (
         <Logo />
         <FlexDiv flexDirection="column">
           <Styles.Legal>Onde assistir Online © 2020</Styles.Legal>
-          <Styles.Contact>Entre em contato</Styles.Contact>
+          <Styles.Contact href="mailto:ondeassistironline@gmail.com">
+            Entre em contato
+          </Styles.Contact>
         </FlexDiv>
       </FlexDiv>
     </Container>
