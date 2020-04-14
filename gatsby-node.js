@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: template,
       context: {
         item: items[i].node,
-        relateds: getRelateds(items, item[i].node.title),
+        relateds: getRelateds(items, items[i].node.title),
       },
     });
   }
