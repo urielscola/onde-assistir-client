@@ -3,24 +3,20 @@ const query = `{
     edges {
       node {
         title
+        slug
         sources
-        tags
       }
     }
   }
 }`;
 
-const mapItems = edge => {
-  console.log(edge);
-  return edge.node;
-};
+const mapItems = edge => edge.node;
 const settings = { attributesToSnippet: [`excerpt:20`] };
 
 const queries = [
   {
     query,
     transformer: ({ data }) => {
-      console.log(data);
       return mapItems(data.items.allMongodbTestItems.edges);
     },
     indexName: `Items`,

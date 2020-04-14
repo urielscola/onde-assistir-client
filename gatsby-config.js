@@ -2,7 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const queries = require('./src/utils/algolia');
 const plugins = [
   `gatsby-plugin-react-helmet`,
   {
@@ -54,6 +53,8 @@ const plugins = [
 ];
 
 if (process.env.CONTEXT === 'production') {
+  const queries = require('./src/utils/algolia');
+
   const algolia = {
     resolve: `gatsby-plugin-algolia-search`,
     options: {

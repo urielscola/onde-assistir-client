@@ -1,12 +1,12 @@
 const path = require(`path`);
 const PER_PAGE = 30;
 
-const getRelateds = (arr, howMany = 6) => {
+const getRelateds = (arr, mainItem, howMany = 6) => {
   const relateds = [];
   const hashMap = {};
   while (relateds.length < howMany) {
     let item = arr[Math.floor(Math.random() * arr.length)];
-    if (!hashMap[item.node.title]) {
+    if (!hashMap[item.node.title] && item.node.title !== mainItem) {
       relateds.push(item);
       hashMap[item.node.title] = true;
     }
@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const template = path.resolve(`src/templates/item.js`);
   const results = await graphql(`
     query {
-      items: allMongodbTestItems(limit: 50, filter: { cover: { ne: null } }) {
+      items: allMongodbTestItems(limit: 10, filter: { cover: { ne: null } }) {
         edges {
           node {
             id
@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: template,
       context: {
         item: items[i].node,
-        relateds: getRelateds(items),
+        relateds: getRelateds(items, item[i].node.title),
       },
     });
   }
