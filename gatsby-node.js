@@ -1,3 +1,6 @@
+const realFs = require('fs');
+const gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(realFs);
 const path = require(`path`);
 const PER_PAGE = 30;
 
@@ -20,7 +23,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const template = path.resolve(`src/templates/item.js`);
   const results = await graphql(`
     query {
-      items: allMongodbTestItems(limit: 100, filter: { cover: { ne: null } }) {
+      items: allMongodbTestItems(
+        limit: 15000
+        filter: { cover: { ne: null } }
+      ) {
         edges {
           node {
             id
@@ -29,6 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             tags
             type
+            cast
             year
             runtime
             description

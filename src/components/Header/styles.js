@@ -3,11 +3,15 @@ import styled from 'styled-components';
 export const Container = styled.header`
   padding: 10px 0;
   background-color: ${({ theme }) => theme.white};
+  min-height: 83px;
+  display: flex;
+  align-items: center;
 
   > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 `;
 

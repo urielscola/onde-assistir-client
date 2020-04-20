@@ -25,7 +25,7 @@ const ItemMobile = ({ payload, related }) => {
             <Ratings ratings={payload.ratings} />
           </Styles.Column>
           <Styles.Column maxWidth="50">
-            <Image src={payload.cover} title={payload.title} />
+            <Image src={payload.cover} alt={payload.title} />
           </Styles.Column>
         </FlexDiv>
 

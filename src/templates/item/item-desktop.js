@@ -22,7 +22,11 @@ const ItemDesktop = ({ payload, related }) => {
             <FlexDiv>
               <Styles.Column maxWidth="200px">
                 <FlexDiv flexDirection="column">
-                  <Image src={payload.cover} title={payload.title} />
+                  <Image
+                    src={payload.cover}
+                    alt={payload.title}
+                    hasThumb={true}
+                  />
                   <Spacing appearence="small" />
 
                   <Infos payload={payload} />

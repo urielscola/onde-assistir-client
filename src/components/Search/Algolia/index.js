@@ -40,6 +40,7 @@ const Search = props => {
           >
             <Configure hitsPerPage={7} distinct />
             <SearchBox
+              autoFocus
               translations={{ placeholder: 'onde assistir [...] online' }}
             />
             <Results>
