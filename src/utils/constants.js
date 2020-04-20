@@ -49,8 +49,8 @@ export const CATEGORIES = [
     color: '#FFCFA8',
   },
   {
-    link: '/categorias/luta',
-    title: 'Luta',
+    link: '/categorias/filmes',
+    title: 'Filmes',
     color: '#6BA3A3',
   },
   {
@@ -84,8 +84,8 @@ export const CATEGORIES = [
     color: '#e4a3d4',
   },
   {
-    link: '/categorias/terror',
-    title: 'Terror',
+    link: '/categorias/series',
+    title: 'Series',
     color: '#f3ecb8',
   },
   {

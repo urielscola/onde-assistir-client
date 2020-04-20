@@ -1,3 +1,6 @@
+const realFs = require('fs');
+const gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(realFs);
 const path = require(`path`);
 const PER_PAGE = 30;
 
@@ -29,6 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             tags
             type
+            cast
             year
             runtime
             description

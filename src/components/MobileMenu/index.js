@@ -12,15 +12,22 @@ const MobileMenu = () => {
       <Styles.Menu isOpen={isMenuOpen}>
         <ul>
           {MENU_ITEMS.map(item => (
-            <li key={item.label}>
-              <Link to={item.link} title={item.label} onClick={toggleMenu}>
-                {item.label}
-              </Link>
+            <li key={item.label} onClick={() => toggleMenu('visible')}>
+              {item.label === 'Contato' ? (
+                <a href="mailto:ondeassistironline@gmail.com">{item.label}</a>
+              ) : (
+                <Link to={item.link} title={item.label}>
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
       </Styles.Menu>
-      <Styles.Offset isOpen={isMenuOpen} onClick={toggleMenu} />
+      <Styles.Offset
+        isOpen={isMenuOpen}
+        onClick={() => toggleMenu('visible')}
+      />
     </Responsive.NotDesktop>
   );
 };

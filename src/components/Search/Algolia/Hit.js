@@ -9,11 +9,16 @@ const Hit = ({ hit }) => {
 
   return (
     <Styles.HitContainer>
-      <Link to={hit.slug} title={hit.title} onClick={toggleSearch}>
+      <Link
+        to={hit.slug}
+        title={hit.title}
+        onClick={() => toggleSearch('visible')}
+      >
         <FlexDiv flexDirection="column">
           <p>{hit.title}</p>
           <span>
-            disponível em <b>{hit.sources.length}</b> fontes
+            disponível em <b>{hit.sources.length}</b>{' '}
+            {hit.sources.length > 1 ? 'fontes' : 'fonte'}
           </span>
         </FlexDiv>
       </Link>

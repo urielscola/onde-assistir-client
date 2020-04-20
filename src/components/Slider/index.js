@@ -14,6 +14,7 @@ const Container = styled.div`
 const defaultSettings = {
   dots: true,
   infinite: false,
+  lazyLoad: 'ondemand',
   speed: 500,
   initialSlide: 0,
   slidesToShow: 3,

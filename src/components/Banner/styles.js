@@ -3,7 +3,7 @@ import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
   position: relative;
-  min-height: 400px;
+  min-height: 250px;
   margin-bottom: 2%;
   display: flex;
   align-items: center;
@@ -31,6 +31,6 @@ export const Title = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeightBold};
 
   ${medias.greaterThan('md')`
-    font-size: 56px;
+    font-size: 46px;
   `}
 `;

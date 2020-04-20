@@ -9,13 +9,13 @@ const ApplicationProvider = ({ children }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleMenu = payload => {
-    toggleWindowBody();
+    toggleWindowBody(payload);
     setIsSearchOpen(false);
     return setIsMenuOpen(!isMenuOpen);
   };
 
   const toggleSearch = payload => {
-    toggleWindowBody();
+    toggleWindowBody(payload);
     setIsMenuOpen(false);
     return setIsSearchOpen(!isSearchOpen);
   };

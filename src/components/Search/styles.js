@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { space } from 'styled-system';
 
 export const Overlay = styled.div`
-  position: absolute;
+  position: fixed;
   left: 0;
   /* padding: 20px 0; */
   z-index: 1;

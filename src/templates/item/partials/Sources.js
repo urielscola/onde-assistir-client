@@ -10,6 +10,8 @@ const sourcesImages = {
   Globoplay: 'logos/globoplay.png',
   'Fox Play': 'logos/foxplay.jpg',
   'Fox Premium': 'logos/foxpremium.png',
+  'Telecine Play': 'logos/telecine-play.jpg',
+  'HBO Go': 'logos/hbo-go.png',
 };
 
 const ALLOWED_SOURCES = [
@@ -20,23 +22,26 @@ const ALLOWED_SOURCES = [
   'Globoplay',
   'Fox Play',
   'Fox Premium',
+  'Telecine Play',
+  'HBO Go',
 ];
 
 const Sources = ({ sources }) => (
   <FlexDiv>
     {sources.length &&
-      sources.map(source => {
-        if (!ALLOWED_SOURCES.includes(source.name)) return;
-        return (
-          <div key={source.name}>
-            <a href={source.url} target="_blank" rel="noopener noreferrer">
-              <Styles.Badge>
-                <Image src={sourcesImages[source.name]} />
-              </Styles.Badge>
-            </a>
-          </div>
-        );
-      })}
+      sources
+        .filter(source => ALLOWED_SOURCES.includes(source.name))
+        .map(source => {
+          return (
+            <div key={source.name}>
+              <a href={source.url} target="_blank" rel="noopener noreferrer">
+                <Styles.Badge>
+                  <Image src={sourcesImages[source.name]} alt={source.name} />
+                </Styles.Badge>
+              </a>
+            </div>
+          );
+        })}
   </FlexDiv>
 );
 

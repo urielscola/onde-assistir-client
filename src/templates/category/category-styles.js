@@ -25,7 +25,7 @@ export const Banner = styled.div`
     font-weight: ${({ theme }) => theme.fontWeightBold};
 
     ${medias.greaterThan('sm')`
-      font-size: 50px;
+      font-size: 46px;
     `};
   }
 `;

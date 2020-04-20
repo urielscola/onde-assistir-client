@@ -21,20 +21,20 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `gatsby-starter-default`,
-      short_name: `starter`,
+      name: `Onde Assistir Online`,
+      short_name: `Onde Assistir Online`,
       start_url: `/`,
-      background_color: `#663399`,
-      theme_color: `#663399`,
+      background_color: `#333`,
+      theme_color: `#333`,
       display: `minimal-ui`,
-      icon: `src/assets/images/gatsby-icon.png`,
+      icon: `src/assets/images/icon.png`,
     },
   },
   {
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {
-        families: ['Roboto'],
+        families: ['Roboto', 'Overlock'],
       },
     },
   },
@@ -49,6 +49,7 @@ const plugins = [
   },
   `gatsby-plugin-styled-components`,
   `gatsby-plugin-offline`,
+  'gatsby-plugin-sitemap',
   'gatsby-plugin-root-import',
 ];
 
@@ -81,8 +82,9 @@ if (process.env.CONTEXT === 'production') {
 
 module.exports = {
   siteMetadata: {
-    title: `Onde assistir online`,
-    description: ``,
+    title: `Onde Assistir Online`,
+    description: `9 serviços de stream, uma só pesquisa. Encontre o que deseja assistir!`,
+    siteUrl: 'https://ondeassistironline.com.br',
   },
   plugins,
 };

@@ -51,7 +51,7 @@ export const Title = styled.h1`
   font-weight: 700;
   text-shadow: 0px 1px 2px #333;
   padding-right: 20px;
-  font-size: ${({ theme }) => theme.fontSizeXLarge};
+  font-size: 22px;
   margin-bottom: 10px;
   line-height: 1.25;
   ${space};

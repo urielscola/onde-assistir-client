@@ -18,7 +18,7 @@ const Search = () => {
       <Container position="relative">
         <Icon
           variant="close"
-          onClick={toggleSearch}
+          onClick={() => toggleSearch('visible')}
           color="#fff"
           position="absolute"
           right="20px"
