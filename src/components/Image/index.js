@@ -2,7 +2,13 @@ import React from 'react';
 import { LazyImage } from 'react-lazy-images';
 
 const Image = ({ src, alt, hasThumb = false }) => {
-  const source = require(`../../assets/images/${src}`);
+  let source;
+  try {
+    source = require(`../../assets/images/${src}`);
+  } catch (err) {
+    console.log(err);
+    source = '';
+  }
   return (
     <LazyImage
       src={source}

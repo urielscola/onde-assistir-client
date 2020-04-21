@@ -61,7 +61,12 @@ exports.createPages = async ({ graphql, actions }) => {
     throw results.errors;
   }
 
-  const items = results.data.items.edges;
+  const items = results.data.items.edges.filter(
+    item =>
+      !!item.node.sources &&
+      item.node.sources.length > 0 &&
+      item.node.cover.includes('.png')
+  );
   for (let i = 0; i < items.length; i++) {
     createPage({
       path: '/' + items[i].node.slug,
