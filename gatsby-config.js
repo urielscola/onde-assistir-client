@@ -11,13 +11,13 @@ const plugins = [
       path: `${__dirname}/src/assets/images`,
     },
   },
-  `gatsby-plugin-sharp`,
-  {
-    resolve: `gatsby-transformer-sharp`,
-    options: {
-      checkSupportedExtensions: false,
-    },
-  },
+  // `gatsby-plugin-sharp`,
+  // {
+  //   resolve: `gatsby-transformer-sharp`,
+  //   options: {
+  //     checkSupportedExtensions: false,
+  //   },
+  // },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
@@ -44,7 +44,7 @@ const plugins = [
       connectionString: process.env.CONNECTION_STRING,
       auth: { user: process.env.DB_USER, password: process.env.DB_PASS },
       dbName: process.env.DB_NAME,
-      collection: [`items`, `tags`],
+      collection: [`items`],
     },
   },
   `gatsby-plugin-styled-components`,
@@ -52,6 +52,10 @@ const plugins = [
   'gatsby-plugin-sitemap',
   'gatsby-plugin-root-import',
 ];
+
+if (process.env.CONTEXT === 'development') {
+  plugins.push('gatsby-plugin-webpack-bundle-analyzer');
+}
 
 if (process.env.CONTEXT === 'production') {
   const queries = require('./src/utils/algolia');
