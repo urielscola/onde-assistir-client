@@ -31,3 +31,12 @@ export const Title = styled.h5`
   margin-bottom: 7px;
   ${space};
 `;
+
+export const SearchCredits = styled.div`
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  float: right;
+  margin-top: 25px;
+`;

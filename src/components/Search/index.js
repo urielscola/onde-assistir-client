@@ -28,6 +28,10 @@ const Search = () => {
         <div>
           <Styles.Title marginTop="10px">pesquisar</Styles.Title>
           <Algolia algolia={algolia} />
+          <Styles.SearchCredits>
+            Powered by Algolia
+            <Icon variant="algolia" marginLeft="10px" color="#fff" />
+          </Styles.SearchCredits>
         </div>
       </Container>
     </Styles.Overlay>
