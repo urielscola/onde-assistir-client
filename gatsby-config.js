@@ -48,7 +48,6 @@ const plugins = [
     },
   },
   `gatsby-plugin-styled-components`,
-  `gatsby-plugin-offline`,
   'gatsby-plugin-sitemap',
   'gatsby-plugin-root-import',
 ];
@@ -83,6 +82,8 @@ if (process.env.CONTEXT === 'production') {
   plugins.push(algolia);
   plugins.push(analytics);
 }
+
+plugins.push(`gatsby-plugin-offline`);
 
 module.exports = {
   siteMetadata: {

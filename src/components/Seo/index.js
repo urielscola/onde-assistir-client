@@ -55,17 +55,8 @@ function SEO({ description, lang, meta, title, keywords, children }) {
           content: metaDescription,
         },
         {
-          name: `keywords`,
-          content: [
-            'Séries',
-            'Filmes',
-            'Animes',
-            'Streaming',
-            'Online',
-            'Grátis',
-          ]
-            .concat(keywords)
-            .join(', '),
+          name: `google-site-verification`,
+          content: `sqL_YJIrxAkJOE_Cs1DZpWXrNDrfP-jYONIpM7338u0`,
         },
       ].concat(meta)}
     >
