@@ -60,6 +60,11 @@ function SEO({ description, lang, meta, title, keywords, children }) {
         },
       ].concat(meta)}
     >
+      <script
+        data-ad-client="ca-pub-6648930024026133"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
       {children}
     </Helmet>
   );
