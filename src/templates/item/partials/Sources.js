@@ -36,7 +36,12 @@ const Sources = ({ sources }) => (
             <div key={source.name}>
               <a href={source.url} target="_blank" rel="noopener noreferrer">
                 <Styles.Badge>
-                  <Image src={sourcesImages[source.name]} alt={source.name} />
+                  <Image
+                    src={require(`../../../assets/images/${
+                      sourcesImages[source.name]
+                    }`)}
+                    alt={source.name}
+                  />
                 </Styles.Badge>
               </a>
             </div>

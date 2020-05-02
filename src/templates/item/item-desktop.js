@@ -13,6 +13,8 @@ import * as Styles from './item-styles';
 import { Infos, Sources, Ratings } from './partials';
 
 const ItemDesktop = ({ payload, related }) => {
+  const [id] = payload.cover.split('.');
+
   return (
     <Responsive.Desktop>
       <Styles.Bar bg={payload.theme} />
@@ -25,7 +27,10 @@ const ItemDesktop = ({ payload, related }) => {
                   <Image
                     src={payload.cover}
                     alt={payload.title}
-                    hasThumb={true}
+                    src={'https://dfn8uuw9d31r.cloudfront.net/' + payload.cover}
+                    placeholder={
+                      'https://dfn8uuw9d31r.cloudfront.net/' + id + '_thumb.png'
+                    }
                   />
                   <Spacing appearence="small" />
 
@@ -63,7 +68,7 @@ const ItemDesktop = ({ payload, related }) => {
             <Spacing appearence="x-small" />
             <FlexDiv justifyContent="space-between" flexWrap="wrap">
               {related.map(item => (
-                <Thumb thumb={item} key={item.slug} />
+                <Thumb thumb={item} key={item.node.id} />
               ))}
             </FlexDiv>
           </>

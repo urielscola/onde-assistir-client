@@ -19,4 +19,3 @@ export { default as Category } from './Category';
 export { default as Thumb } from './Thumb';
 export { default as Search } from './Search';
 export { default as Scrollable } from './Scrollable';
-export { default as Particles } from './Particles';

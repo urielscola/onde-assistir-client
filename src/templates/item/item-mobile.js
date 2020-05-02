@@ -14,6 +14,8 @@ import * as Styles from './item-styles';
 import { Infos, Sources, Ratings } from './partials';
 
 const ItemMobile = ({ payload, related }) => {
+  const [id] = payload.cover.split('.');
+
   return (
     <Responsive.NotDesktop>
       <Styles.Bar bg={payload.theme} />
@@ -25,7 +27,14 @@ const ItemMobile = ({ payload, related }) => {
             <Ratings ratings={payload.ratings} />
           </Styles.Column>
           <Styles.Column maxWidth="50">
-            <Image src={payload.cover} alt={payload.title} />
+            <Image
+              src={payload.cover}
+              alt={payload.title}
+              src={'https://dfn8uuw9d31r.cloudfront.net/' + payload.cover}
+              placeholder={
+                'https://dfn8uuw9d31r.cloudfront.net/' + id + '_thumb.png'
+              }
+            />
           </Styles.Column>
         </FlexDiv>
 
@@ -49,7 +58,7 @@ const ItemMobile = ({ payload, related }) => {
             <Spacing appearence="x-small" />
             <Slider>
               {related.map(item => (
-                <Thumb thumb={item} key={item.cover} />
+                <Thumb thumb={item} key={item.node.cover} />
               ))}
             </Slider>
           </>

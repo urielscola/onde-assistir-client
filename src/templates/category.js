@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import {
-  Layout,
-  SEO,
-  Container,
-  Thumb,
-  FlexDiv,
-  Particles,
-} from 'src/components';
+import { Layout, SEO, Container, Thumb, FlexDiv } from 'src/components';
 import * as Styles from './category/category-styles';
 
 const TITLES = {
@@ -51,7 +44,6 @@ const CategoryType = props => {
         <link rel="canonical" href={props.path} />
       </SEO>
       <Styles.Banner>
-        <Particles />
         <h3>{TITLES[type]}</h3>
       </Styles.Banner>
       <Container>

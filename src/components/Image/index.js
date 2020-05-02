@@ -1,19 +1,14 @@
 import React from 'react';
 import { LazyImage } from 'react-lazy-images';
 
-const Image = ({ src, alt, hasThumb = false }) => {
-  let source;
-  try {
-    source = require(`../../assets/images/${src}`);
-  } catch (err) {
-    console.log(err);
-    source = '';
-  }
+const Image = ({ src, alt, placeholder }) => {
   return (
     <LazyImage
-      src={source}
+      src={src}
       alt={alt}
-      placeholder={({ _, ref }) => <img ref={ref} src={source} alt={alt} />}
+      placeholder={({ _, ref }) => (
+        <img ref={ref} src={placeholder || src} alt={alt} />
+      )}
       actual={({ imageProps }) => <img {...imageProps} alt={alt} />}
     />
   );

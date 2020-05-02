@@ -19,37 +19,43 @@ const SERIES = [
   {
     node: {
       title: 'La Casa de Papel',
-      slug: 'la-casa-de-papel',
-      cover: 'la-casa-de-papel.png',
+      slug: 'serie/la-casa-de-papel',
+      cover: '5e917202e776b82bd0a1e3a8.png',
     },
   },
   {
     node: {
       title: 'The Walking Dead',
-      slug: 'the-walking-dead',
-      cover: 'the-walking-dead.png',
+      slug: 'serie/the-walking-dead',
+      cover: '5e917201e776b82bd0a1e3a5.png',
     },
   },
-  { node: { title: 'Peppa Pig', slug: 'peppa-pig', cover: 'peppa-pig.png' } },
+  {
+    node: {
+      title: 'Peppa Pig',
+      slug: 'serie/peppa-pig',
+      cover: '5e91722be776b82bd0a1e423.png',
+    },
+  },
   {
     node: {
       title: 'The Witcher',
-      slug: 'the-witcher',
-      cover: 'the-witcher.png',
+      slug: 'serie/the-witcher',
+      cover: '5e917222e776b82bd0a1e408.png',
     },
   },
   {
     node: {
       title: 'Como Defender um Assassino',
-      slug: 'como-defender-um-assassino',
-      cover: 'como-defender-um-assassino.png',
+      slug: 'serie/como-defender-um-assassino',
+      cover: '5e917210e776b82bd0a1e3d1.png',
     },
   },
   {
     node: {
       title: 'Orange is the New Black',
-      slug: 'orange-is-the-new-black',
-      cover: 'orange-is-the-new-black.png',
+      slug: 'serie/orange-is-the-new-black',
+      cover: '5e917260e776b82bd0a1e4bf.png',
     },
   },
 ];
@@ -58,25 +64,43 @@ const MOVIES = [
   {
     node: {
       title: 'Eu sou a lenda',
-      slug: 'eu-sou-a-lenda',
-      cover: 'eu-sou-a-lenda.png',
+      slug: 'filme/eu-sou-a-lenda',
+      cover: '5e874cc4d0467c5158d2d5f9.png',
     },
   },
   {
     node: {
       title: 'Procurando Dory',
-      slug: 'procurando-dory',
-      cover: 'procurando-dory.png',
+      slug: 'filme/procurando-dory',
+      cover: '5e874d48d0467c5158d2d756.png',
     },
   },
-  { node: { title: 'Bird Box', slug: 'bird-box', cover: 'bird-box.png' } },
-  { node: { title: 'Noé', slug: 'noe', cover: 'noe.png' } },
-  { node: { title: 'O Durão', slug: 'o-durao', cover: 'o-durao.png' } },
+  {
+    node: {
+      title: 'Bird Box',
+      slug: 'filme/bird-box',
+      cover: '5e874d2ed0467c5158d2d711.png',
+    },
+  },
+  {
+    node: {
+      title: 'Noé',
+      slug: 'filme/noe',
+      cover: '5e874d7bd0467c5158d2d7e1.png',
+    },
+  },
+  {
+    node: {
+      title: 'O Durão',
+      slug: 'filme/o-durao',
+      cover: '5e874ccfd0467c5158d2d616.png',
+    },
+  },
   {
     node: {
       title: 'O Melhor de Mim',
-      slug: 'o-melhor-de-mim',
-      cover: 'o-melhor-de-mim.png',
+      slug: 'filme/o-melhor-de-mim',
+      cover: '5e874d71d0467c5158d2d7c7.png',
     },
   },
 ];
@@ -85,37 +109,43 @@ const ANIMES = [
   {
     node: {
       title: 'Naruto Shippuuden',
-      slug: 'naruto-shippuuden',
-      cover: 'naruto-shippuuden.png',
+      slug: 'serie/naruto-shippuuden',
+      cover: '5e9171bffe10ba1c0ca6f5f4.png',
     },
   },
   {
     node: {
       title: 'Demon Slayer: Kimetsu no Yaiba',
-      slug: 'demon-slayer-kimetsu-no-yaiba',
-      cover: 'demon-slayer-kimetsu-no-yaiba.png',
+      slug: 'serie/demon-slayer-kimetsu-no-yaiba',
+      cover: '5e9171c0fe10ba1c0ca6f5f8.png',
     },
   },
   {
     node: {
       title: 'One-Punch Man',
-      slug: 'one-punch-man',
-      cover: 'one-punch-man.png',
+      slug: 'serie/one-punch-man',
+      cover: '5e9171c3fe10ba1c0ca6f600.png',
     },
   },
   {
     node: {
       title: 'Fullmetal Alchemist: Brotherhood',
-      slug: 'fullmetal-alchemist-brotherhood',
-      cover: 'fullmetal-alchemist-brotherhood.png',
+      slug: 'serie/fullmetal-alchemist-brotherhood',
+      cover: '5e9171c4fe10ba1c0ca6f603.png',
     },
   },
-  { node: { title: 'HAIKYU!!', slug: 'haikyu', cover: 'haikyu.png' } },
   {
     node: {
-      title: 'Death Note',
-      slug: 'death-note',
-      cover: 'death-note.png',
+      title: 'HAIKYU!!',
+      slug: 'serie/haikyu',
+      cover: '5e9171d5fe10ba1c0ca6f638.png',
+    },
+  },
+  {
+    node: {
+      title: 'DEATH NOTE',
+      slug: 'serie/death-note',
+      cover: '5e917258e776b82bd0a1e4a9.png',
     },
   },
 ];
@@ -194,7 +224,7 @@ const Home = () => {
           <Spacing appearence="x-small" />
           <Slider>
             {MOVIES.map(item => (
-              <Thumb thumb={item} key={item.cover} />
+              <Thumb thumb={item} key={item.node.cover} />
             ))}{' '}
           </Slider>
           <Spacing appearence="x-large" />
@@ -202,7 +232,7 @@ const Home = () => {
           <Spacing appearence="x-small" />
           <Slider>
             {SERIES.map(item => (
-              <Thumb thumb={item} key={item.cover} />
+              <Thumb thumb={item} key={item.node.cover} />
             ))}
           </Slider>
           <Spacing appearence="x-large" />
@@ -210,7 +240,7 @@ const Home = () => {
           <Spacing appearence="x-small" />
           <Slider>
             {ANIMES.map(item => (
-              <Thumb thumb={item} key={item.cover} />
+              <Thumb thumb={item} key={item.node.cover} />
             ))}
           </Slider>
           <Spacing appearence="x-large" />
@@ -220,7 +250,7 @@ const Home = () => {
           <Spacing appearence="x-small" />
           <FlexDiv justifyContent="space-between" flexWrap="wrap">
             {MOVIES.map(item => (
-              <Thumb thumb={item} key={item.cover} />
+              <Thumb thumb={item} key={item.node.cover} />
             ))}
           </FlexDiv>
           <Spacing appearence="medium" />
@@ -228,7 +258,7 @@ const Home = () => {
           <Spacing appearence="x-small" />
           <FlexDiv justifyContent="space-between" flexWrap="wrap">
             {SERIES.map(item => (
-              <Thumb thumb={item} key={item.cover} />
+              <Thumb thumb={item} key={item.node.cover} />
             ))}
           </FlexDiv>
           <Spacing appearence="medium" />
@@ -236,7 +266,7 @@ const Home = () => {
           <Spacing appearence="x-small" />
           <FlexDiv justifyContent="space-between" flexWrap="wrap">
             {ANIMES.map(item => (
-              <Thumb thumb={item} key={item.cover} />
+              <Thumb thumb={item} key={item.node.cover} />
             ))}
           </FlexDiv>
           <Spacing appearence="large" />

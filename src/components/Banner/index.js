@@ -1,11 +1,10 @@
 import React from 'react';
-import { Container, Particles } from '../index';
+import { Container } from '../index';
 import * as Styles from './styles';
 
 const Banner = () => {
   return (
     <Styles.Container>
-      <Particles />
       <Container>
         <Styles.Background>
           <Styles.Title>

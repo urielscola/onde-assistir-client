@@ -16,6 +16,7 @@ export const Container = styled.div`
   }
   .read-more-button {
     text-align: right;
+    cursor: pointer;
     position: relative;
     bottom: 10px;
     text-decoration: underline;

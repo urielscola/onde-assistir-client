@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Slick from 'react-slick';
 
 const Container = styled.div`
+  .slick-arrow {
+    display: none !important;
+  }
   .slick-dots {
     bottom: -35px;
     li {

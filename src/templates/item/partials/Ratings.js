@@ -13,7 +13,12 @@ const Ratings = ({ ratings }) => (
       ratings.map(rating => {
         return (
           <Styles.Ratings key={rating.name}>
-            <Image src={ratingImages[rating.name]} alt={rating.name} />
+            <Image
+              src={require(`../../../assets/images/${
+                ratingImages[rating.name]
+              }`)}
+              alt={rating.name}
+            />
             <p>{rating.value}</p>
           </Styles.Ratings>
         );
