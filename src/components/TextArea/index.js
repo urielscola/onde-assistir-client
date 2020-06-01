@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { FlexDiv } from 'src/components';
 import * as Styles from './styles';
 
