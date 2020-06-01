@@ -20,9 +20,9 @@ const ALLOWED_SOURCES = [
 const Item = ({ pageContext }) => {
   const payload = pageContext.item;
   const [recommended, setRecommended] = useState([]);
-  const validSources = payload.sources.filter(source =>
+  const validSources = payload.sources ? payload.sources.filter(source =>
     ALLOWED_SOURCES.includes(source.name)
-  );
+  ) : [];
 
   const ld = makeJSONLD(payload);
 
