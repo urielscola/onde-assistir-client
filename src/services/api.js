@@ -1,6 +1,6 @@
 import instance, { defaultHeaders } from './instance';
 
-const url = process.env.API_URL;
+const url = process.env.GATSBY_API_URL;
 
 const API = {
   search: async (params, headers) => {
