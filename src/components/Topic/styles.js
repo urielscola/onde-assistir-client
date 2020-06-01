@@ -17,16 +17,18 @@ export const Container = styled.div`
 export const Topic = styled.h3`
   font-weight: ${({ theme }) => theme.fontWeightBold};
   color: ${({ theme }) => theme.fontPrimary};
+  line-height: 1;
   font-size: ${({ theme }) => theme.fontSizeMedium};
+  font-family: ${({ theme }) => theme.fontFamilyTitles};
   text-transform: uppercase;
   position: relative;
   padding-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   ${space};
   ${typography};
 
   ${medias.greaterThan('md')`
-    font-size: ${({ theme }) => theme.fontSizeLarge};
+    font-size: 26px;
     padding-left: 17px;
   `}
 
@@ -37,7 +39,6 @@ export const Topic = styled.h3`
     top: 0;
     height: 100%;
     width: 3px;
-    background-color: ${({ color, theme }) =>
-      color || theme.fontPrimaryLighten};
+    background-color: ${({ color, theme }) => color || theme.brandPrimary};
   }
 `;

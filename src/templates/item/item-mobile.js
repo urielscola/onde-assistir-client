@@ -8,59 +8,73 @@ import {
   ReadMore,
   Thumb,
   Topic,
-  Slider,
+  Breadcrumb,
 } from 'src/components';
 import * as Styles from './item-styles';
+import noImage from 'src/assets/images/no-cover.png';
 import { Infos, Sources, Ratings } from './partials';
 
-const ItemMobile = ({ payload, related }) => {
-  const [id] = payload.cover.split('.');
+const ItemMobile = ({ payload, related, validSources }) => {
+  const [id] = payload.cover ? payload.cover.split('.') : [null];
+  const image = id ? 'https://dfn8uuw9d31r.cloudfront.net/' + payload.cover : noImage;
+  const placeholder = id ? 'https://dfn8uuw9d31r.cloudfront.net/' + id + '_thumb.png' : noImage;
 
   return (
     <Responsive.NotDesktop>
-      <Styles.Bar bg={payload.theme} />
+      <Styles.CustomBar>
+        <Container position="relative" top="5vh">
+          <Breadcrumb items={[{ label: payload.title }]} />
+          <Spacing appearence="small" />
+          <Styles.Title>{payload.title}</Styles.Title>
+          <FlexDiv justifyContent="space-between">
+            <Styles.Column maxWidth="45%">
+              <Image
+                alt={payload.title}
+                src={image}
+                placeholder={placeholder}
+              />
+            </Styles.Column>
+            <Styles.Column maxWidth="50%">
+              <Styles.Year>{payload.year}</Styles.Year>
+              <Ratings ratings={payload.ratings} />
+            </Styles.Column>
+          </FlexDiv>
+        </Container>
+
+      </Styles.CustomBar>
       <Container>
-        <FlexDiv marginTop="-28vh" justifyContent="space-between">
-          <Styles.Column maxWidth="50%">
-            <Styles.Year>{payload.year}</Styles.Year>
-            <Styles.Title>{payload.title}</Styles.Title>
-            <Ratings ratings={payload.ratings} />
-          </Styles.Column>
-          <Styles.Column maxWidth="50">
-            <Image
-              src={payload.cover}
-              alt={payload.title}
-              src={'https://dfn8uuw9d31r.cloudfront.net/' + payload.cover}
-              placeholder={
-                'https://dfn8uuw9d31r.cloudfront.net/' + id + '_thumb.png'
-              }
-            />
-          </Styles.Column>
-        </FlexDiv>
+        <Spacing appearence="x-small" />
 
-        <Topic title="sinopse" color={payload.theme}>
-          <ReadMore text={payload.description} />
-        </Topic>
+
+        {payload.description && (
+          <>
+            <Topic title="sinopse">
+              <ReadMore text={payload.description} />
+            </Topic>
+            <Spacing appearence="x-small" />
+          </>
+        )}
+
+        {validSources.length > 0 && (
+          <Topic
+            title="onde assistir online"
+            marginBottom="15px"
+          >
+            <Sources sources={validSources} />
+          </Topic>
+        )}
         <Spacing appearence="small" />
-
-        <Topic
-          title="onde assistir online"
-          marginBottom="15px"
-          color={payload.theme}
-        >
-          <Sources sources={payload.sources} />
-        </Topic>
         <Infos payload={payload} />
         <Spacing appearence="medium" />
         {related.length > 0 && (
           <>
-            <Topic title="você também pode gostar" color={payload.theme} />
+            <Topic title="você também pode gostar" />
             <Spacing appearence="x-small" />
-            <Slider>
+            <FlexDiv flexWrap="wrap" justifyContent="space-between">
               {related.map(item => (
-                <Thumb thumb={item} key={item.node.cover} />
+                <Thumb thumb={item} key={item.cover} />
               ))}
-            </Slider>
+            </FlexDiv>
           </>
         )}
         <Spacing appearence="large" />

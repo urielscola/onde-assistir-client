@@ -5,15 +5,12 @@ const ALTERATION_POWER = 0.2;
 const colors = {
   black: '#000000',
   white: '#fff',
-  offWhite: '#f1f1f1',
+  brandPrimary: '#8566AA',
+  brandSecundary: '#8ec6c5',
+  offWhite: '#f4f4f4',
   fontPrimary: '#333',
   border: '#d4d4d4',
-  gray: '#53565a',
-  blue: '#51c3c7',
-  success: '#2caa3b',
-  attention: '#dfb52b',
-  info: '#274cb1',
-  danger: '#e35b5c',
+  gray: '#A8A8A8',
 };
 
 Object.keys(colors).forEach(key => {
@@ -27,12 +24,13 @@ const typography = {
   fontSizeNormal: '16px',
   fontSizeMedium: '18px',
   fontSizeLarge: '20px',
-  fontSizeXLarge: '26px',
+  fontSizeXLarge: '28px',
   fontWeightLight: 300,
   fontWeightNormal: 400,
   fontWeightBold: 700,
   fontSpacing: '0.3px',
-  fontFamilyPrimary: '"Roboto"',
+  fontFamilyPrimary: '"Open Sans"',
+  fontFamilyTitles: '"Montserrat"',
 };
 
 const layout = {

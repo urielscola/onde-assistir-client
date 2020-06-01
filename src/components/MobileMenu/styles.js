@@ -10,8 +10,8 @@ export const Menu = styled.nav`
   text-align: left;
   padding: 3rem 2rem;
   border-right: 3px solid #666;
-  position: absolute;
-  top: 83px;
+  position: fixed;
+  top: 75px;
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
@@ -27,10 +27,8 @@ export const Menu = styled.nav`
   }
 
   a {
-    font-size: 2rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    font-weight: ${({ theme }) => theme.fontWeightBold};
-    letter-spacing: 0.2rem;
     color: ${({ theme }) => theme.fontPrimary};
   }
 `;
@@ -38,8 +36,8 @@ export const Menu = styled.nav`
 export const Offset = styled.div`
   width: 100%;
   z-index: 1;
-  position: absolute;
-  top: 83px;
+  position: fixed;
+  top: 75px;
   height: 100vh;
   right: 0;
   transition: 0.3s ease-in-out;

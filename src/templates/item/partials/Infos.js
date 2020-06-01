@@ -7,21 +7,18 @@ const Infos = ({ payload }) => (
       <LabelValue
         label="TEMPORADAS"
         value={payload.seasons}
-        color={payload.theme}
       />
     )}
     {payload.runtime && (
       <LabelValue
         label="DURAÇÃO"
         value={payload.runtime}
-        color={payload.theme}
       />
     )}
     {payload.tags && payload.tags.length > 0 && (
       <LabelValue
         isTags
         label="TAGS"
-        color={payload.theme}
         value={payload.tags.join(', ')}
       />
     )}
@@ -30,7 +27,6 @@ const Infos = ({ payload }) => (
       <LabelValue
         isTags
         label="ELENCO"
-        color={payload.theme}
         value={payload.cast.join(', ')}
       />
     )}

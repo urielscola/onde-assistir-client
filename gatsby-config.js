@@ -11,30 +11,36 @@ const plugins = [
       path: `${__dirname}/src/assets/images`,
     },
   },
-  // `gatsby-plugin-sharp`,
-  // {
-  //   resolve: `gatsby-transformer-sharp`,
-  //   options: {
-  //     checkSupportedExtensions: false,
-  //   },
-  // },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
       name: `Onde Assistir Online`,
       short_name: `Onde Assistir Online`,
       start_url: `/`,
-      background_color: `#333`,
-      theme_color: `#333`,
+      background_color: `#f4f4f4`,
+      theme_color: `#8566AA`,
       display: `minimal-ui`,
-      icon: `src/assets/images/icon.png`,
+      icon: `src/assets/images/logo.png`,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-page-creator`,
+    options: {
+      path: `${__dirname}/src/pages`,
+      ignore: [`**/styles.js`, `**/partials/**.js`],
+    },
+  },
+  {
+    resolve: `gatsby-plugin-nprogress`,
+    options: {
+      color: `#8ec6c5`,
     },
   },
   {
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {
-        families: ['Roboto', 'Overlock'],
+        families: ['Open Sans', 'Montserrat'],
       },
     },
   },
@@ -57,20 +63,6 @@ if (process.env.CONTEXT === 'development') {
 }
 
 if (process.env.CONTEXT === 'production') {
-  const queries = require('./src/utils/algolia');
-
-  const algolia = {
-    resolve: `gatsby-plugin-algolia-search`,
-    options: {
-      appId: process.env.GATSBY_ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_ADMIN_KEY,
-      indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-      queries,
-      chunkSize: 10000,
-      enablePartialUpdates: true,
-    },
-  };
-
   const analytics = {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
@@ -79,7 +71,6 @@ if (process.env.CONTEXT === 'production') {
     },
   };
 
-  plugins.push(algolia);
   plugins.push(analytics);
 }
 

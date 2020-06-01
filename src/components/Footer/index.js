@@ -1,21 +1,42 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Container, Logo, FlexDiv } from '../index';
 import * as Styles from './styles';
 
 const Footer = () => (
-  <Styles.Container>
-    <Container>
-      <FlexDiv justifyContent="space-between" alignItems="center">
+  <footer>
+    <Styles.TopContainer>
+      <Container>
         <Logo />
-        <FlexDiv flexDirection="column">
-          <Styles.Legal>Onde assistir Online © 2020</Styles.Legal>
-          <Styles.Contact href="mailto:ondeassistironline@gmail.com">
-            Entre em contato
-          </Styles.Contact>
+
+        <hr />
+        <FlexDiv>
+          <Styles.FooterNav>
+            <h5>Categorias</h5>
+            <ul>
+              <li><Link to="/catalogo">Populares</Link></li>
+              <li><Link to="/catalogo">Lançamentos</Link></li>
+            </ul>
+          </Styles.FooterNav>
+          <Styles.FooterNav>
+            <h5>Suporte</h5>
+            <ul>
+              <li><Link to="/contato">Contato</Link></li>
+              <li><Link to="/termos-de-uso">Termos de uso</Link></li>
+            </ul>
+          </Styles.FooterNav>
         </FlexDiv>
-      </FlexDiv>
-    </Container>
-  </Styles.Container>
+      </Container>
+    </Styles.TopContainer>
+    <Styles.BottomContainer>
+      <Container>
+        <FlexDiv justifyContent="space-between">
+          <span>© 2020</span>
+          <span><Link to="/politica-de-privacidade">Política de Privacidade</Link></span>
+        </FlexDiv>
+      </Container>
+    </Styles.BottomContainer>
+  </footer>
 );
 
 export default Footer;

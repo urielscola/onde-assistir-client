@@ -1,15 +1,7 @@
 export const MENU_ITEMS = [
   {
-    label: 'Filmes',
-    link: '/categorias/filmes',
-  },
-  {
-    label: 'Séries',
-    link: '/categorias/series',
-  },
-  {
-    label: 'Animes',
-    link: '/categorias/animes',
+    label: 'Catálogo',
+    link: '/catalogo',
   },
   {
     label: 'Contato',
@@ -17,85 +9,49 @@ export const MENU_ITEMS = [
   },
 ];
 
-export const CATEGORIES = [
-  {
-    link: '/categorias/acao',
-    title: 'Ação',
-    color: '#FFA8A8',
-  },
-  {
-    link: '/categorias/misterio',
-    title: 'Mistério',
-    color: '#6BA3A3',
-  },
-  {
-    link: '/categorias/drama',
-    title: 'Drama',
-    color: '#D4F09E',
-  },
-  {
-    link: '/categorias/animes',
-    title: 'Anime',
-    color: '#fdddfc',
-  },
-  {
-    link: '/categorias/romance',
-    title: 'Romance',
-    color: '#D4F09E',
-  },
-  {
-    link: '/categorias/esportes',
-    title: 'Esporte',
-    color: '#FFCFA8',
-  },
-  {
-    link: '/categorias/filmes',
-    title: 'Filmes',
-    color: '#6BA3A3',
-  },
-  {
-    link: '/categorias/desenhos',
-    title: 'Desenho',
-    color: '#FFA8A8',
-  },
-  {
-    link: '/categorias/familia',
-    title: 'Família',
-    color: '#4FB99C',
-  },
-  {
-    link: '/categorias/sci-fi',
-    title: 'Sci-Fi',
-    color: '#EFC12F',
-  },
-  {
-    link: '/categorias/guerra',
-    title: 'Guerra',
-    color: '#CCFF94',
-  },
-  {
-    link: '/categorias/historia',
-    title: 'História',
-    color: '#FFE3B3',
-  },
-  {
-    link: '/categorias/thriller',
-    title: 'Thriller',
-    color: '#e4a3d4',
-  },
-  {
-    link: '/categorias/series',
-    title: 'Series',
-    color: '#f3ecb8',
-  },
-  {
-    link: '/categorias/militar',
-    title: 'Militar',
-    color: '#C7FFFA',
-  },
-  {
-    link: '/categorias/aventura',
-    title: 'Aventura',
-    color: '#ffd3b6',
-  },
+export const TAGS = [
+  'Comédia',
+  'Família',
+  'Ficção Científica',
+  'Animação',
+  'Documentário',
+  'Drama',
+  'História',
+  'Crime',
+  'Guerra',
+  'Militar',
+  'Made in Europe',
+  'Fantasia',
+  'Romance',
+  'Mistério',
+  'Thriller',
+  'Terror',
+  'Ação',
+  'Aventura',
+  'Música',
+  'Musical',
+  'Western',
+  'Esporte',
+  'Fitness',
+  'Anime',
+  'Reality TV',
+];
+
+export const TAGS_OPTIONS = TAGS.map(tag => ({ label: tag, value: tag }));
+
+export const TYPES = [
+  { label: 'Filme', value: 'movie' },
+  { label: 'Série', value: 'serie' },
+];
+
+export const SOURCES_OPTIONS = [
+  { value: 'Netflix', path: 'logos/netflix.jpg' },
+  { value: 'Amazon Prime Video', path: 'logos/primevideo.jpg' },
+  { value: 'Claro Video', path: 'logos/clarovideo.png' },
+  { value: 'Crunchyroll', path: 'logos/crunchyroll.png' },
+  { value: 'Globo Play', path: 'logos/globoplay.png' },
+  { value: 'Fox Play', path: 'logos/foxplay.jpg' },
+  { value: 'Fox Premium', path: 'logos/foxpremium.png' },
+  { value: 'Telecine Play', path: 'logos/telecine-play.jpg' },
+  { value: 'HBO Go', path: 'logos/hbo-go.png' },
 ];

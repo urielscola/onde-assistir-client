@@ -1,24 +1,20 @@
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
-export const Overlay = styled.div`
+export const Container = styled.div`
   position: fixed;
   left: 0;
-  /* padding: 20px 0; */
-  z-index: 1;
-  top: 0;
+  padding: 15px 0;
+  z-index: 4;
+  top: 75px;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s ease-in-out;
+  background-color: white;
 
+  display: none;
   ${({ isOpen }) =>
     isOpen &&
     `
-    opacity: 1;
-    visibility: visible;
+    display: block;
   `};
 `;
 
@@ -30,13 +26,4 @@ export const Title = styled.h5`
   text-transform: uppercase;
   margin-bottom: 7px;
   ${space};
-`;
-
-export const SearchCredits = styled.div`
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 14px;
-  float: right;
-  margin-top: 25px;
 `;

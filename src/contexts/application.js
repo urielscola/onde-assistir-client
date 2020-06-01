@@ -7,17 +7,20 @@ const useApplicationContext = () => useContext(ApplicationContext);
 const ApplicationProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
-  const toggleMenu = payload => {
-    toggleWindowBody(payload);
-    setIsSearchOpen(false);
+  const toggleMenu = () => {
+    toggleWindowBody(isFiltersOpen || !isMenuOpen);
     return setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleSearch = payload => {
-    toggleWindowBody(payload);
-    setIsMenuOpen(false);
+  const toggleSearch = () => {
     return setIsSearchOpen(!isSearchOpen);
+  };
+
+  const toggleFilters = () => {
+    toggleWindowBody(!isFiltersOpen || isMenuOpen);
+    return setIsFiltersOpen(!isFiltersOpen);
   };
 
   const value = {
@@ -25,6 +28,8 @@ const ApplicationProvider = ({ children }) => {
     toggleSearch,
     isMenuOpen,
     isSearchOpen,
+    toggleFilters,
+    isFiltersOpen
   };
 
   return (

@@ -8,29 +8,36 @@ import {
   Thumb,
   Container,
   ReadMore,
+  Breadcrumb,
 } from 'src/components';
 import * as Styles from './item-styles';
+import noImage from 'src/assets/images/no-cover.png';
 import { Infos, Sources, Ratings } from './partials';
 
-const ItemDesktop = ({ payload, related }) => {
-  const [id] = payload.cover.split('.');
+const ItemDesktop = ({ payload, related, validSources }) => {
+  const [id] = payload.cover ? payload.cover.split('.') : [null];
+  const image = id ? 'https://dfn8uuw9d31r.cloudfront.net/' + payload.cover : noImage;
+  const placeholder = id ? 'https://dfn8uuw9d31r.cloudfront.net/' + id + '_thumb.png' : noImage;
 
   return (
     <Responsive.Desktop>
-      <Styles.Bar bg={payload.theme} />
+      <Styles.CustomBar>
+        <Container>
+          <Spacing appearence="small" />
+          <Breadcrumb items={[{ label: payload.title }]} />
+        </Container>
+      </Styles.CustomBar>
       <Container>
-        <FlexDiv marginTop="-120px" justifyContent="space-between">
-          <Styles.Column maxWidth="70%">
+
+        <FlexDiv marginTop="-125px" justifyContent="space-between">
+          <Styles.Column maxWidth="100%">
             <FlexDiv>
               <Styles.Column maxWidth="200px">
                 <FlexDiv flexDirection="column">
                   <Image
-                    src={payload.cover}
                     alt={payload.title}
-                    src={'https://dfn8uuw9d31r.cloudfront.net/' + payload.cover}
-                    placeholder={
-                      'https://dfn8uuw9d31r.cloudfront.net/' + id + '_thumb.png'
-                    }
+                    src={image}
+                    placeholder={placeholder}
                   />
                   <Spacing appearence="small" />
 
@@ -42,19 +49,25 @@ const ItemDesktop = ({ payload, related }) => {
                 <Styles.Title>{payload.title}</Styles.Title>
                 <Ratings ratings={payload.ratings} />
                 <Spacing appearence="large" />
-
-                <Topic title="sinopse" color={payload.theme}>
-                  <ReadMore text={payload.description} visible={220} />
-                </Topic>
                 <Spacing appearence="x-small" />
 
-                <Topic
-                  title="onde assistir online"
-                  marginBottom="15px"
-                  color={payload.theme}
-                >
-                  <Sources sources={payload.sources} />
-                </Topic>
+                {payload.description && (
+                  <>
+                    <Topic title="sinopse">
+                      <ReadMore text={payload.description} visible={220} />
+                    </Topic>
+                    <Spacing appearence="x-small" />
+                  </>
+                )}
+                <Spacing appearence="x-small" />
+                {validSources.length > 0 && (
+                  <Topic
+                    title="onde assistir online"
+                    marginBottom="15px"
+                  >
+                    <Sources sources={validSources} />
+                  </Topic>
+                )}
               </Styles.Column>
             </FlexDiv>
           </Styles.Column>
@@ -68,7 +81,7 @@ const ItemDesktop = ({ payload, related }) => {
             <Spacing appearence="x-small" />
             <FlexDiv justifyContent="space-between" flexWrap="wrap">
               {related.map(item => (
-                <Thumb thumb={item} key={item.node.id} />
+                <Thumb thumb={item} key={item.cover} />
               ))}
             </FlexDiv>
           </>

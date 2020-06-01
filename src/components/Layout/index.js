@@ -24,7 +24,9 @@ const Layout = ({ children }) => {
       <ApplicationProvider>
         <ThemeProvider theme={theme}>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <main>{children}</main>
+          <main>
+            <div style={{ paddingTop: '75px' }}>{children}</div>
+          </main>
           <Footer />
           <MobileMenu />
           <Search />

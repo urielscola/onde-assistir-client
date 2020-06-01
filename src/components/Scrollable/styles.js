@@ -13,10 +13,10 @@ export const Scrollable = styled.div`
   }
 
   ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.fontPrimary};
+    background: ${({ theme }) => theme.offWhite};
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.offWhite};
+    background: ${({ theme }) => theme.fontPrimary};
   }
 `;

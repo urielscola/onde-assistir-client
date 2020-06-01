@@ -3,11 +3,13 @@ import { space, layout } from 'styled-system';
 import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
-  width: 100%;
-  padding: 0 10px;
+  width: 50%;
+  padding: 0 7px;
   ${space};
   ${layout};
   overflow: hidden;
+  margin-bottom: 25px;
+  font-family: ${({ theme }) => theme.fontFamilyPrimary};
 
   img {
     width: 100%;
@@ -21,6 +23,10 @@ export const Container = styled.div`
     }
   }
 
+  ${medias.greaterThan('sm')`
+    width: 33%;
+    `}
+
   ${medias.greaterThan('md')`
     padding: 0;
     width: 170px;
@@ -28,8 +34,18 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h4`
-  font-size: ${({ theme }) => theme.fontSizeSmall};
-  font-weight: ${({ theme }) => theme.fontWeightBold};
+  font-size: ${({ theme }) => theme.fontSizeNormal};
+  font-family: ${({ theme }) => theme.fontFamilyTitles};
   color: ${({ theme }) => theme.fontPrimary};
-  padding-right: 10px;
+`;
+
+export const Year = styled.h5`
+  font-size: ${({ theme }) => theme.fontSizeSmall};
+  color: ${({ theme }) => theme.fontPrimaryLighten};
+`;
+
+export const Sources = styled.h6`
+  font-size: ${({ theme }) => theme.fontSizeSmall};
+  margin-bottom: 5px;
+  color: ${({ theme }) => theme.fontPrimaryLighten};
 `;

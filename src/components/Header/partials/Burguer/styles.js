@@ -18,7 +18,7 @@ export const Burger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ theme }) => theme.fontPrimaryLighten};
+    background: ${({ theme }) => theme.fontPrimary};
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
     position: relative;

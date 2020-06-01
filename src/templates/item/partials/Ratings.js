@@ -9,14 +9,14 @@ const ratingImages = {
 
 const Ratings = ({ ratings }) => (
   <FlexDiv alignItems="center">
-    {ratings.length &&
+    {ratings.length > 0 &&
       ratings.map(rating => {
         return (
           <Styles.Ratings key={rating.name}>
             <Image
               src={require(`../../../assets/images/${
                 ratingImages[rating.name]
-              }`)}
+                }`)}
               alt={rating.name}
             />
             <p>{rating.value}</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Responsive } from 'src/components';
+import { Responsive, Topic } from 'src/components';
 import { MENU_ITEMS } from 'src/utils';
 import { useApplicationContext } from 'src/contexts/application';
 import * as Styles from './styles';
@@ -10,23 +10,21 @@ const MobileMenu = () => {
   return (
     <Responsive.NotDesktop>
       <Styles.Menu isOpen={isMenuOpen}>
-        <ul>
-          {MENU_ITEMS.map(item => (
-            <li key={item.label} onClick={() => toggleMenu('visible')}>
-              {item.label === 'Contato' ? (
-                <a href="mailto:ondeassistironline@gmail.com">{item.label}</a>
-              ) : (
+        <Topic title="MENU">
+          <ul>
+            {MENU_ITEMS.map(item => (
+              <li key={item.label} onClick={toggleMenu}>
                 <Link to={item.link} title={item.label}>
                   {item.label}
                 </Link>
-              )}
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </Topic>
       </Styles.Menu>
       <Styles.Offset
         isOpen={isMenuOpen}
-        onClick={() => toggleMenu('visible')}
+        onClick={toggleMenu}
       />
     </Responsive.NotDesktop>
   );
