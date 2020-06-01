@@ -52,12 +52,12 @@ const ItemDesktop = ({ payload, related, validSources }) => {
                 <Spacing appearence="x-small" />
 
                 {payload.description && (
-                  <>
+                  <div style={{ maxWidth: '660px' }}>
                     <Topic title="sinopse">
                       <ReadMore text={payload.description} visible={220} />
                     </Topic>
                     <Spacing appearence="x-small" />
-                  </>
+                  </div>
                 )}
                 <Spacing appearence="x-small" />
                 {validSources.length > 0 && (
@@ -71,11 +71,11 @@ const ItemDesktop = ({ payload, related, validSources }) => {
               </Styles.Column>
             </FlexDiv>
           </Styles.Column>
-          <Styles.Column maxWidth="25%"></Styles.Column>
+          {/* <Styles.Column maxWidth="25%"></Styles.Column> */}
         </FlexDiv>
         <Spacing appearence="x-large" />
 
-        {related.length > 0 && (
+        {related && related.length > 0 && (
           <>
             <Topic title="você também pode gostar" />
             <Spacing appearence="x-small" />

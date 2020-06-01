@@ -66,7 +66,7 @@ const ItemMobile = ({ payload, related, validSources }) => {
         <Spacing appearence="small" />
         <Infos payload={payload} />
         <Spacing appearence="medium" />
-        {related.length > 0 && (
+        {related && related.length > 0 && (
           <>
             <Topic title="você também pode gostar" />
             <Spacing appearence="x-small" />

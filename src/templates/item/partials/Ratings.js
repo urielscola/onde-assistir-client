@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexDiv, Image } from 'src/components';
+import { FlexDiv, Image, Spacing } from 'src/components';
 import * as Styles from '../item-styles';
 
 const ratingImages = {
@@ -9,7 +9,7 @@ const ratingImages = {
 
 const Ratings = ({ ratings }) => (
   <FlexDiv alignItems="center">
-    {ratings.length > 0 &&
+    {ratings.length > 0 ?
       ratings.map(rating => {
         return (
           <Styles.Ratings key={rating.name}>
@@ -22,7 +22,7 @@ const Ratings = ({ ratings }) => (
             <p>{rating.value}</p>
           </Styles.Ratings>
         );
-      })}
+      }) : <Spacing appearence="medium" />}
   </FlexDiv>
 );
 
