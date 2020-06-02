@@ -4,6 +4,7 @@ export const Menu = styled.nav`
   display: flex;
   flex-direction: column;
   width: 75%;
+  max-width: 350px;
   z-index: 2;
   background: ${({ theme }) => theme.offWhite};
   height: 100vh;

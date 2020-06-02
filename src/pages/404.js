@@ -5,8 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import notfound from 'src/assets/images/404.png';
 
 const NotFound = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isDesktop = useMediaQuery({ maxWidth: 992 })
+  const isMobile = useMediaQuery({ maxWidth: 992 })
 
   return (
     <Layout>
@@ -24,7 +23,7 @@ const NotFound = () => {
       </Bar>
       <Spacing appearence="large" />
       <Container>
-        <FlexDiv justifyContent="space-between" flexDirection={isDesktop ? 'column' : 'row'}>
+        <FlexDiv justifyContent="space-between" flexDirection={isMobile ? 'column' : 'row'}>
           <div style={{ lineHeight: '1.5' }}>
             <Topic title="OOPS...">
               <p>

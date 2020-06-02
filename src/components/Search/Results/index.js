@@ -1,5 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { Link } from 'gatsby';
+import { useMediaQuery } from 'react-responsive';
 import { Thumb, FlexDiv, Scrollable } from 'src/components';
 import * as Styles from './styles';
 import { useOnClickOutside } from 'src/utils';
@@ -7,6 +8,7 @@ import { useOnClickOutside } from 'src/utils';
 const Results = ({ showResults, results, loading, setShowResults }) => {
   const ref = useRef();
   useOnClickOutside(ref, useCallback(() => setShowResults(false), [setShowResults]));
+  const isMobile = useMediaQuery({ maxWidth: 992 })
 
   return (
     <Styles.Container isOpen={results && results.length > 0 && showResults} ref={ref}>
@@ -14,7 +16,7 @@ const Results = ({ showResults, results, loading, setShowResults }) => {
         {!loading && results && results.length > 0 && showResults && (
           <FlexDiv flexWrap="wrap">
             {results.map(result => (
-              <FlexDiv width="50%" marginBottom="10px" key={result.id + result.sources + result.slug}>
+              <FlexDiv width={isMobile ? '100%' : '50%'} marginBottom="10px" key={result.id + result.sources + result.slug}>
                 <Styles.ResultImage>
                   <Thumb thumb={result} showInfo={false} />
                 </Styles.ResultImage>
@@ -37,7 +39,7 @@ const Results = ({ showResults, results, loading, setShowResults }) => {
           </Styles.ResultInfo>
         )}
       </Scrollable>
-    </Styles.Container>
+    </Styles.Container >
   );
 };
 

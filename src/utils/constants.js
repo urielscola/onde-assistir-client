@@ -47,7 +47,7 @@ export const TYPES = [
 export const SOURCES_OPTIONS = [
   { value: 'Netflix', path: 'logos/netflix.jpg' },
   { value: 'Amazon Prime Video', path: 'logos/primevideo.jpg' },
-  { value: 'Claro Video', path: 'logos/clarovideo.png' },
+  { value: 'Claro video', path: 'logos/clarovideo.png' },
   { value: 'Crunchyroll', path: 'logos/crunchyroll.png' },
   { value: 'Globo Play', path: 'logos/globoplay.png' },
   { value: 'Fox Play', path: 'logos/foxplay.jpg' },

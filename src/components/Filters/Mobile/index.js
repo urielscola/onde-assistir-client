@@ -16,14 +16,14 @@ const Filters = ({ filters, handleChange }) => {
   return (
     <Responsive.NotDesktop>
       <Styles.FilterBar isOpen={isFiltersOpen}>
-        <Scrollable maxHeight="calc(100vh - 300px)">
+        <Scrollable maxHeight="calc(100vh - 300px)" className="filters">
           <Topic title="Filtrar">
             <Styles.FilterTitle>STREAMS</Styles.FilterTitle>
             <FlexDiv flexWrap="wrap" marginBottom="25px">
               {SOURCES_OPTIONS.map(source => (
                 <Styles.BadgeContainer
                   key={source.value}
-                  active={filters.sources.includes(source.value)}
+                  active={filters.sources.length === 0 || filters.sources.includes(source.value)}
                   onClick={() => handleChange('sources', source.value)}
                 >
                   <Badge src={source.path} />

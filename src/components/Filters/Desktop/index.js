@@ -20,7 +20,7 @@ const Desktop = ({ filters, handleChange }) => {
               {SOURCES_OPTIONS.map(source => (
                 <BadgeContainer
                   key={source.value}
-                  active={filters.sources.includes(source.value)}
+                  active={filters.sources.length === 0 || filters.sources.includes(source.value)}
                   onClick={() => handleChange('sources', source.value)}
                 >
                   <Badge src={source.path} marginBottom="0" />
