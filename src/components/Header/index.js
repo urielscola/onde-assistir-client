@@ -18,7 +18,7 @@ const Header = ({ siteTitle = '' }) => {
           <Logo />
         </Link>
         <Responsive.Desktop>
-          {window.location.pathname !== '/' &&  <Search ResultComponent={Results} />}
+          {window && window.location.pathname !== '/' &&  <Search ResultComponent={Results} />}
         </Responsive.Desktop>
         <Responsive.NotDesktop>
           <Styles.MobileActions>
