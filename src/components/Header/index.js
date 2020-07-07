@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { Container, Logo, Responsive, Icon } from '../index';
 import { Burguer, Search } from './partials';
@@ -10,6 +10,11 @@ import { theme } from 'src/assets/styles';
 
 const Header = ({ siteTitle = '' }) => {
   const { isMenuOpen, toggleMenu, isSearchOpen, toggleSearch } = useApplicationContext();
+  const [showSearch, setShowSearch] = useState(false);
+
+  useEffect(() => {
+    setShowSearch(window.location.pathname !== '/');
+  }, []);
 
   return (
     <Styles.Container>
@@ -18,7 +23,7 @@ const Header = ({ siteTitle = '' }) => {
           <Logo />
         </Link>
         <Responsive.Desktop>
-          {window && window.location.pathname !== '/' &&  <Search ResultComponent={Results} />}
+          {showSearch && <Search ResultComponent={Results} />}
         </Responsive.Desktop>
         <Responsive.NotDesktop>
           <Styles.MobileActions>
