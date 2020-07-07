@@ -46,7 +46,7 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
-    "build": "cross-env GATSBY_DB_NODES=loki gatsby build",
+    "build": "cross-env gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
