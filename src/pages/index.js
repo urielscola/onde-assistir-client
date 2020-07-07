@@ -23,7 +23,7 @@ const Home = () => {
       }
       popular: allMongodbTestItems(
         limit: 6
-        sort: { fields: popularity, order: DESC }
+        sort: { fields: popularity, order: ASC }
         filter: { popularity: { gte: 90, lte: 99 } }
       ) {
         edges {
