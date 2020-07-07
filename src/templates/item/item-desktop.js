@@ -7,7 +7,6 @@ import {
   Topic,
   Thumb,
   Container,
-  ReadMore,
   Breadcrumb,
 } from 'src/components';
 import * as Styles from './item-styles';
@@ -49,25 +48,30 @@ const ItemDesktop = ({ payload, related, validSources }) => {
                 <Styles.Title>{payload.title}</Styles.Title>
                 <Ratings ratings={payload.ratings} />
                 <Spacing appearence="large" />
-                <Spacing appearence="x-small" />
+                <Spacing appearence="small" />
 
-                {payload.description && (
-                  <div style={{ maxWidth: '660px' }}>
-                    <Topic title="sinopse">
-                      <ReadMore text={payload.description} visible={220} />
-                    </Topic>
-                    <Spacing appearence="x-small" />
-                  </div>
-                )}
-                <Spacing appearence="x-small" />
-                {validSources.length > 0 && (
+                {validSources && (
                   <Topic
-                    title="onde assistir online"
+                    title="Disponível em:"
                     marginBottom="15px"
                   >
                     <Sources sources={validSources} />
                   </Topic>
                 )}
+
+                <Spacing appearence="small" />
+
+                {payload.description && (
+                  <div style={{ maxWidth: '660px' }}>
+                    <Topic title="Sinopse:">
+                      <Styles.Description>
+                        {payload.description}
+                      </Styles.Description>
+                    </Topic>
+                    <Spacing appearence="x-small" />
+                  </div>
+                )}
+                <Spacing appearence="x-small" />
               </Styles.Column>
             </FlexDiv>
           </Styles.Column>
@@ -77,7 +81,7 @@ const ItemDesktop = ({ payload, related, validSources }) => {
 
         {related && related.length > 0 && (
           <>
-            <Topic title="você também pode gostar" />
+            <Topic title="Títulos similares" />
             <Spacing appearence="x-small" />
             <FlexDiv justifyContent="space-between" flexWrap="wrap">
               {related.map(item => (
@@ -86,7 +90,7 @@ const ItemDesktop = ({ payload, related, validSources }) => {
             </FlexDiv>
           </>
         )}
-        <Spacing appearence="x-large" />
+        <Spacing appearence="small" />
       </Container>
     </Responsive.Desktop>
   );

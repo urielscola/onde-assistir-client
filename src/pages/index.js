@@ -29,12 +29,9 @@ const Home = () => {
         edges {
           node {
             title
-            year
             slug
             cover
-            sources {
-              name
-            }
+            tags
           }
         }
       }
@@ -43,19 +40,16 @@ const Home = () => {
         sort: { fields: createdAt, order: ASC }
         filter: {
           popularity: { gte: 80 }
-          year: { eq: "2020" }
+          year: { eq: 2020 }
           createdAt: { ne: "null" }
         }
       ) {
         edges {
           node {
             title
-            year
             slug
             cover
-            sources {
-              name
-            }
+            tags
           }
         }
       }
@@ -68,31 +62,28 @@ const Home = () => {
         <link rel="canonical" href={items.meta.siteMetadata.siteUrl} />
       </SEO>
       <AboveFold />
-      <Spacing size="medium" />
       <Container>
-        <Spacing size="medium" />
-        <Topic title="POPULARES">
-          <Responsive.NotDesktop>
-            <FlexDiv flexWrap="wrap">
-              {items.popular.edges.map(item => (
-                <Thumb thumb={item} key={item.node.cover} />
-              ))}
-            </FlexDiv>
-          </Responsive.NotDesktop>
-          <Responsive.Desktop>
-            <FlexDiv flexWrap="wrap" justifyContent="space-between">
-              {items.popular.edges.map(item => (
-                <Thumb thumb={item} key={item.node.cover} />
-              ))}
-            </FlexDiv>
-          </Responsive.Desktop>
-        </Topic>
-        <Spacing size="medium" />
-      </Container>
-      <Categories />
-      <Spacing size="small" />
-      <Container>
-        <Topic title="LANÇAMENTOS">
+        <Responsive.NotDesktop>
+          <Categories />
+          <Spacing appearence="small" />
+          <Topic title="Populares">
+            <Responsive.NotDesktop>
+              <FlexDiv flexWrap="wrap">
+                {items.popular.edges.map(item => (
+                  <Thumb thumb={item} key={item.node.cover} />
+                ))}
+              </FlexDiv>
+            </Responsive.NotDesktop>
+            <Responsive.Desktop>
+              <FlexDiv flexWrap="wrap" justifyContent="space-between">
+                {items.popular.edges.map(item => (
+                  <Thumb thumb={item} key={item.node.cover} />
+                ))}
+              </FlexDiv>
+            </Responsive.Desktop>
+          </Topic>
+          <Spacing appearence="small" />
+          <Topic title="Lançamentos">
           <Responsive.NotDesktop>
             <FlexDiv flexWrap="wrap">
               {items.newest.edges.map(item => (
@@ -108,6 +99,47 @@ const Home = () => {
             </FlexDiv>
           </Responsive.Desktop>
         </Topic>
+        </Responsive.NotDesktop>
+        <Responsive.Desktop>
+          <Spacing appearence="small" />
+          <Topic title="Populares">
+            <Responsive.NotDesktop>
+              <FlexDiv flexWrap="wrap">
+                {items.popular.edges.map(item => (
+                  <Thumb thumb={item} key={item.node.cover} />
+                ))}
+              </FlexDiv>
+            </Responsive.NotDesktop>
+            <Responsive.Desktop>
+              <FlexDiv flexWrap="wrap" justifyContent="space-between">
+                {items.popular.edges.map(item => (
+                  <Thumb thumb={item} key={item.node.cover} />
+                ))}
+              </FlexDiv>
+            </Responsive.Desktop>
+          </Topic>
+          <Spacing appearence="x-large" />
+          <Spacing appearence="small" />
+          <Categories />
+          <Spacing appearence="x-large" />
+          <Spacing appearence="medium" />
+          <Topic title="Lançamentos">
+          <Responsive.NotDesktop>
+            <FlexDiv flexWrap="wrap">
+              {items.newest.edges.map(item => (
+                <Thumb thumb={item} key={item.node.cover} />
+              ))}
+            </FlexDiv>
+          </Responsive.NotDesktop>
+          <Responsive.Desktop>
+            <FlexDiv flexWrap="wrap" justifyContent="space-between">
+              {items.newest.edges.map(item => (
+                <Thumb thumb={item} key={item.node.cover} />
+              ))}
+            </FlexDiv>
+          </Responsive.Desktop>
+        </Topic>
+        </Responsive.Desktop>
       </Container>
     </Layout>
   );

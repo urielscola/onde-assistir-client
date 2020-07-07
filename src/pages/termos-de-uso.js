@@ -8,7 +8,7 @@ const TermosDeUso = () => {
   return (
     <Layout>
       <SEO title="Termos de Uso - Onde Assistir Online">
-        <link rel="canonical" href='/contato' />
+        <link rel="canonical" href='/termos-de-uso' />
       </SEO>
       <Bar marginBottom="0">
         <Container>

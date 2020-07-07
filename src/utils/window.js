@@ -1,19 +1,7 @@
-export const toggleWindowBody = value => {
-  if (value) {
-    document.ontouchmove = function (e) {
-      e.preventDefault();
-    };
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
-    const filters = document.querySelector('.filters');
-    if (filters) {
-      filters.ontouchmove = function () {
-        return true;
-      };
-    }
-    return document.body.style.overflowY = 'hidden';
-  }
-  document.ontouchmove = function () {
-    return true;
-  };
-  return document.body.style.overflowY = '';
+export const toggleWindowBody = value => {
+  const target = document.querySelector('body');
+  if (value) return disableBodyScroll(target);
+  return enableBodyScroll(target);
 };

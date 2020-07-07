@@ -1,50 +1,55 @@
 import React from 'react';
-import { Container, Responsive, FlexDiv } from 'src/components';
+import { useMediaQuery } from 'react-responsive';
+import { Container, FlexDiv, Spacing } from 'src/components';
 import * as Styles from './styles';
 import SearchBar from './SearchBar';
 import Results from 'src/components/Search/Results';
-import phone from 'src/assets/images/phone.png';
-import triangle from 'src/assets/images/triangle.svg';
+import providers from 'src/assets/images/providers.png';
 
 const AboveFold = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
-    <div>
-      <Responsive.NotDesktop>
-        <Styles.Container>
-          <Styles.Phone src={phone} />
-          <Styles.Triangle src={triangle} />
-        </Styles.Container>
-        <Container>
-          <Styles.Title>
-            9 serviços de stream, <br />
-            uma única pesquisa.
-          </Styles.Title>
-          <SearchBar ResultComponent={Results} />
-        </Container>
-      </Responsive.NotDesktop>
-      <Responsive.Desktop>
-        <Styles.Container>
-          <Container>
-            <FlexDiv
-              width="100%"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <div style={{ position: 'relative', bottom: '70px' }}>
-                <Styles.Title>
-                  9 serviços de stream, <br />
-                  uma única pesquisa.
-                </Styles.Title>
-                <SearchBar ResultComponent={Results} />
-              </div>
-              <Styles.Phone src={phone} />
-            </FlexDiv>
-          </Container>
-          <Styles.Triangle src={triangle} />
-        </Styles.Container>
-      </Responsive.Desktop>
-    </div>
+    <Styles.Container>
+      <Container>
+        <FlexDiv
+          width="100%"
+          justifyContent="space-between"
+          alignItems="center"
+          flexDirection={isMobile ? 'column' : 'row'}
+        >
+          {isMobile && <Spacing appearence="small" />}
+          <div style={{ maxWidth: isMobile ? '100%' : '40%' }}>
+            <Styles.Title>
+              Descubra <b>onde assistir</b> o filme ou série que está procurando
+            </Styles.Title>
+            <SearchBar ResultComponent={Results} />
+            {isMobile ? <Spacing appearence="medium" /> : <Spacing appearence="x-large" />}
+            <Styles.Slogan><b>9</b> plataformas de streaming em uma só busca.</Styles.Slogan>
+          </div>
+          {isMobile && <Spacing appearence="small" />}
+          <Styles.Providers src={providers} />
+        </FlexDiv>
+      </Container>
+    </Styles.Container>
   );
 };
 
 export default AboveFold;
+
+
+
+
+{/* <Responsive.NotDesktop>
+<Styles.Container>
+  <Styles.Providers src={providers} />
+</Styles.Container>
+<Container>
+  <Styles.Title>
+    Descubra <b>onde assistir</b> o filme ou série que está procurando
+  </Styles.Title>
+  <SearchBar ResultComponent={Results} />
+</Container>
+</Responsive.NotDesktop>
+<Responsive.Desktop>
+      </Responsive.Desktop> */}

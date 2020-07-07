@@ -41,7 +41,7 @@ const Search = ({ onClick, ResultComponent }) => {
         position="absolute"
         right="10px"
         top="8px"
-        variant="search"
+        variant={loading ? "load" : "search"}
         size={25}
       />
       <ResultComponent showResults={showResults} results={results} loading={loading} setShowResults={setShowResults} />

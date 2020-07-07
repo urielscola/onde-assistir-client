@@ -1,14 +1,25 @@
 import styled from 'styled-components';
+import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
   position: relative;
+
+  .search-icon {
+    transform: translateY(-50%);
+  }
+
   input {
     width: 100%;
-    height: 45px;
-    border: 2px solid #8566aa;
-    padding: 10px;
+    border: 1px solid ${({ theme}) => theme.gray};
+    border-radius: 5px;
+    height: 40px;
     font-size: 14px;
-    box-shadow: 2px 2px 5px #a8a8a8;
+    padding: 0 12px;
+
+    ${medias.greaterThan('md')`
+      padding: 0 20px;
+      height: 55px;
+    `};
 
     ::placeholder {
       /* Chrome, Firefox, Opera, Safari 10.1+ */

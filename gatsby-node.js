@@ -8,12 +8,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const template = path.resolve(`src/templates/item.js`);
   const results = await graphql(`
     query {
-      items: allMongodbTestItems(limit: 13000) {
+      items: allMongodbTestItems(limit: 100000) {
         edges {
           node {
             id
             slug
-            theme
             title
             tags
             type
@@ -32,6 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
               name
               url
               value
+              count
             }
           }
         }

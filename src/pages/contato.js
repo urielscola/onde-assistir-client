@@ -5,7 +5,8 @@ import { api } from 'src/services';
 
 const Contato = () => {
   const [success, setSuccess] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  
   const onSubmit = async (event) => {
     const target = event.target;
     event.preventDefault();
@@ -27,7 +28,8 @@ const Contato = () => {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
+
   return (
     <Layout>
       <SEO title="Contato - Onde Assistir Online">

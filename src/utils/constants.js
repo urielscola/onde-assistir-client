@@ -4,8 +4,16 @@ export const MENU_ITEMS = [
     link: '/catalogo',
   },
   {
-    label: 'Contato',
-    link: '/contato',
+    label: 'Filmes',
+    link: '/catalogo?type=movie',
+  },
+  {
+    label: 'Séries',
+    link: '/catalogo?type=serie',
+  },
+  {
+    label: 'Animes',
+    link: '/catalogo?tags=Anime',
   },
 ];
 
@@ -55,3 +63,27 @@ export const SOURCES_OPTIONS = [
   { value: 'Telecine Play', path: 'logos/telecine-play.jpg' },
   { value: 'HBO Go', path: 'logos/hbo-go.png' },
 ];
+
+export const ALLOWED_SOURCES = [
+  'Amazon Prime Video',
+  'Netflix',
+  'Claro Video',
+  'Crunchyroll',
+  'Globo Play',
+  'Fox Play',
+  'Fox Premium',
+  'Telecine Play',
+  'HBO Go',
+];
+
+export const PRICING = {
+  'Amazon Prime Video': 9.99,
+  Netflix: 21.9,
+  'Claro Video': 19.9,
+  Crunchyroll: 25,
+  'Globo Play': 19.9,
+  'Fox Play': 24.9,
+  'Fox Premium': 24.9,
+  'Telecine Play': 37.9,
+  'HBO Go': 34.9,
+};

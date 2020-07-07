@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { space, typography } from 'styled-system';
 import { medias } from 'src/assets/styles';
 import { Bar } from 'src/components';
@@ -19,6 +19,84 @@ export const CustomBar = styled(Bar)`
     min-height: 205px;
   `}
 `;
+
+export const SourceItem = styled.div`
+  border: 1px solid ${({ isBestDeal, theme }) => isBestDeal ? theme.brandPrimary : theme.border};
+  font-family: ${({ theme }) => theme.fontFamilyTitles};
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px 20px;
+  max-width: 650px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    > * {
+      margin: 0 10px;
+    }
+  }
+
+  ${({ isBestDeal }) => isBestDeal && css`
+    box-shadow: 0px 1px 0px #ccc;
+  `};
+
+  img {
+    width: 90px;
+  }
+
+  ${medias.greaterThan('md')`
+    flex-direction: row;
+
+    > div {
+      margin-bottom: 0;
+      width: 55%;
+
+      > * {
+        margin: 0;
+      }
+    }
+  `}
+`;
+
+export const Description = styled.p`
+  font-family: ${({ theme }) => theme.fontFamilyTitles};
+  font-size: 16px;
+  line-height: 1.5;
+`; 
+
+export const SourceLink = styled.div`
+  background-color: ${({ isBestDeal, theme }) => isBestDeal ? theme.brandPrimary : theme.fontSecundaryLighten};
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 250ms ease-in-out;
+
+  &:hover {
+    background-color: ${({ isBestDeal, theme }) => isBestDeal ? theme.brandPrimaryDarken : theme.fontSecundary};
+  }
+`;
+
+export const Pricing = styled.div`
+  font-size: 14px;
+  color: 1px solid ${({ theme }) => theme.fontSecundary};
+
+  b {
+    font-size: 20px;
+    color: ${({ isBestDeal, theme }) => isBestDeal ? theme.brandPrimary : theme.fontPrimary};
+    margin-right: 7px;
+  }
+`;
+
 
 export const Year = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
@@ -46,7 +124,7 @@ export const Title = styled.h1`
 
   ${medias.greaterThan('md')`
     font-size: 28px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   `}
 `;
 

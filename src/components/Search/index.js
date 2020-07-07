@@ -7,7 +7,7 @@ import * as Styles from './styles';
 
 
 const Search = () => {
-  const { isSearchOpen, toggleSearch } = useApplicationContext();
+  const { isSearchOpen } = useApplicationContext();
 
   useEffect(() => {
     if (isSearchOpen) {

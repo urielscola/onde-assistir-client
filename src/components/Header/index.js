@@ -15,21 +15,16 @@ const Header = ({ siteTitle = '' }) => {
     <Styles.Container>
       <Container>
         <Link to="/" title={siteTitle}>
-          <Responsive.NotDesktop>
-            <Logo title="" />
-          </Responsive.NotDesktop>
-          <Responsive.Desktop>
-            <Logo />
-          </Responsive.Desktop>
+          <Logo />
         </Link>
         <Responsive.Desktop>
-          <Search ResultComponent={Results} />
+          {window.location.pathname !== '/' &&  <Search ResultComponent={Results} />}
         </Responsive.Desktop>
         <Responsive.NotDesktop>
           <Styles.MobileActions>
             <Icon
               variant={isSearchOpen ? 'close' : 'search'}
-              size={35}
+              size={30}
               color={theme.fontPrimary}
               onClick={toggleSearch}
             />

@@ -27,7 +27,7 @@ export const MobileActions = styled.div`
 
   > div,
   button {
-    margin-left: 20px;
+    margin-left: 10px;
   }
 `;
 

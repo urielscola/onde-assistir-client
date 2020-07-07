@@ -5,7 +5,7 @@ export const FilterBar = styled.div`
   position: absolute;
   height: 100%;
   left: 0;
-  top: 260px;
+  top: 253px;
   width: 70%;
   background-color: ${({ theme }) => theme.offWhite};
   z-index: 2;
@@ -24,7 +24,7 @@ export const FilterBarOffset = styled.div`
   position: absolute;
   height: 100%;
   left: 0;
-  top: 260px;
+  top: 253px;
   width: 100%;
   z-index: 1;
   transition: 0.6s ease-in-out;

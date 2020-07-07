@@ -8,7 +8,7 @@ import { useOnClickOutside } from 'src/utils';
 const Results = ({ showResults, results, loading, setShowResults }) => {
   const ref = useRef();
   useOnClickOutside(ref, useCallback(() => setShowResults(false), [setShowResults]));
-  const isMobile = useMediaQuery({ maxWidth: 992 })
+  const isMobile = useMediaQuery({ maxWidth: 992 });
 
   return (
     <Styles.Container isOpen={results && results.length > 0 && showResults} ref={ref}>
@@ -23,9 +23,6 @@ const Results = ({ showResults, results, loading, setShowResults }) => {
                 <Link to={result.slug}>
                   <Styles.ResultInfo>
                     <p>{result.title}</p>
-                    <p>
-                      {result.sources} {result.sources === 1 ? 'fonte' : 'fontes'}
-                    </p>
                   </Styles.ResultInfo>
                 </Link>
               </FlexDiv>

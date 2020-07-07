@@ -1,13 +1,11 @@
 import React from 'react';
-import * as Styles from './styles';
+import Icon from '../../../Icon';
 
 const Burger = ({ isOpen, onClick }) => {
+  const variant = isOpen ? 'close' : 'menu';
+
   return (
-    <Styles.Burger isOpen={isOpen} onClick={onClick}>
-      <div />
-      <div />
-      <div />
-    </Styles.Burger>
+    <Icon variant={variant} size={32} onClick={onClick} />
   );
 };
 

@@ -11,7 +11,7 @@ const Bar = ({ count }) => {
       <Styles.FilterContainer>
         <Container>
           <FlexDiv alignItems="center" justifyContent="space-between">
-            <p>{count} resultados encontrados</p>
+            <p>{count.toLocaleString()} resultados</p>
             <Icon
               variant="filter"
               color={isFiltersOpen ? theme.brandSecundary : theme.gray}

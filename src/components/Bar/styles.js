@@ -3,8 +3,8 @@ import { space } from 'styled-system';
 import { medias } from 'src/assets/styles';
 
 export const Container = styled.div`
-  background-image: linear-gradient(180deg, #DBD2E4 0%, #8566AA 100%);
-  border-bottom: 7px solid #8EC6C5;
+  background-color: #0F5959;
+  /* border-bottom: 7px solid #8EC6C5; */
   min-height: 80px;
   position: relative;
   margin-bottom: 7vh;

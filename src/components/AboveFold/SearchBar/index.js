@@ -34,15 +34,16 @@ const SearchBar = ({ ResultComponent }) => {
     <Styles.Container>
       <input
         type="text"
-        placeholder="onde assistir online?"
+        placeholder="O que você quer assitir hoje?"
         onChange={e => search(e.target.value)}
         onFocus={() => setShowResults(true)}
       />
       <Icon
         position="absolute"
-        right="10px"
-        top="8px"
-        variant="search"
+        right="3.5%"
+        top="50%"
+        className="search-icon"
+        variant={loading ? "load" : "search"}
         size={30}
       />
       <ResultComponent showResults={showResults} results={results} loading={loading} setShowResults={setShowResults} />

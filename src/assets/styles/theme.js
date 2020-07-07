@@ -5,10 +5,11 @@ const ALTERATION_POWER = 0.2;
 const colors = {
   black: '#000000',
   white: '#fff',
-  brandPrimary: '#8566AA',
+  brandPrimary: '#3A8483',
   brandSecundary: '#8ec6c5',
-  offWhite: '#f4f4f4',
-  fontPrimary: '#333',
+  offWhite: '#f1f1f1',
+  fontPrimary: '#555555',
+  fontSecundary: '#333333',
   border: '#d4d4d4',
   gray: '#A8A8A8',
 };
@@ -29,7 +30,7 @@ const typography = {
   fontWeightNormal: 400,
   fontWeightBold: 700,
   fontSpacing: '0.3px',
-  fontFamilyPrimary: '"Open Sans"',
+  fontFamilyPrimary: '"Montserrat"',
   fontFamilyTitles: '"Montserrat"',
 };
 

@@ -4,18 +4,18 @@ import { medias } from 'src/assets/styles';
 export const TopContainer = styled.footer`
   margin-top: 55px;
   padding: 25px 0;
-  color: ${({ theme }) => theme.white};
-  background: ${({ theme }) => theme.brandPrimary};
+  color: ${({ theme }) => theme.fontPrimary};
+  background: ${({ theme }) => theme.offWhite};
 
   img {
     display: none;
   }
 
   a {
-    color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.fontPrimary};
   }
   hr {
-    background-color: ${({ theme }) => theme.white};
+    background-color: ${({ theme }) => theme.fontPrimary};
     height: 1px;
     width: 100%;
     margin-top: 15px;

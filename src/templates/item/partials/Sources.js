@@ -1,45 +1,53 @@
 import React from 'react';
-import { FlexDiv, Badge } from 'src/components';
+import { FlexDiv } from 'src/components';
+import { ALLOWED_SOURCES, PRICING } from 'src/utils';
+import { SourceItem, Pricing, SourceLink } from '../item-styles';
 
 const sourcesImages = {
-  'Amazon Prime Video': 'logos/primevideo.jpg',
-  Netflix: 'logos/netflix.jpg',
-  'Claro Video': 'logos/clarovideo.png',
-  Crunchyroll: 'logos/crunchyroll.png',
-  'Globo Play': 'logos/globoplay.png',
-  'Fox Play': 'logos/foxplay.jpg',
-  'Fox Premium': 'logos/foxpremium.png',
-  'Telecine Play': 'logos/telecine-play.jpg',
-  'HBO Go': 'logos/hbo-go.png',
+  'Amazon Prime Video': 'logos/primevideo_large.png',
+  Netflix: 'logos/netflix_large.png',
+  'Claro Video': 'logos/clarovideo_large.png',
+  Crunchyroll: 'logos/crunchyroll_large.png',
+  'Globo Play': 'logos/globoplay_large.png',
+  'Fox Play': 'logos/foxplay_large.png',
+  'Fox Premium': 'logos/foxpremium_large.png',
+  'Telecine Play': 'logos/telecine-play_large.jpg',
+  'HBO Go': 'logos/hbo-go_large.png',
 };
 
-const ALLOWED_SOURCES = [
-  'Amazon Prime Video',
-  'Netflix',
-  'Claro Video',
-  'Crunchyroll',
-  'Globo Play',
-  'Fox Play',
-  'Fox Premium',
-  'Telecine Play',
-  'HBO Go',
-];
-
-const Sources = ({ sources }) => (
-  <FlexDiv>
-    {sources.length > 0 &&
-      sources
-        .filter(source => ALLOWED_SOURCES.includes(source.name))
-        .map(source => {
-          return (
-            <div key={source.name}>
-              <a href={source.url} target="_blank" rel="noopener noreferrer">
-                <Badge src={sourcesImages[source.name]} alt={source.name} />
-              </a>
-            </div>
-          );
-        })}
-  </FlexDiv>
-);
+const Sources = ({ sources }) =>  {
+  return (
+    <FlexDiv flexDirection="column">
+      {sources && sources.length > 0 &&
+        sources
+          .filter(source => ALLOWED_SOURCES.includes(source.name))
+          
+          .map((source, index) => {
+            return (
+              <SourceItem key={source.name} isBestDeal={index === 0}>
+                <div>
+                  <img src={require(`../../../assets/images/${sourcesImages[source.name]}`)} alt={source.name} />
+                  <Pricing isBestDeal={index === 0}>
+                    <p>A partir de</p>
+                    <h4>
+                      <b>{PRICING[source.name].toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</b>
+                      /mês
+                    </h4>
+                  </Pricing>
+                </div>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  <SourceLink isBestDeal={index === 0}>
+                    {index === 0 ? 'Assista agora' : 'Saiba mais'}
+                  </SourceLink>
+                </a>
+              </SourceItem>
+            );
+          })}
+          {!sources || sources.length === 0 && (
+            <p>Não disponivel em serviços de stream no momento.</p>
+          )}
+    </FlexDiv>
+  );
+};
 
 export default Sources;

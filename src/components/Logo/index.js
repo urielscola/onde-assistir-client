@@ -1,14 +1,13 @@
 import React from 'react';
-import { FlexDiv } from 'src/components';
+import { FlexDiv, Icon } from 'src/components';
 import * as Styles from './styles';
-import logo from 'src/assets/images/logo.png';
+import { theme } from 'src/assets/styles';
 
-const Logo = ({ title = 'Onde Assistir Online' }) => {
+const Logo = () => {
   return (
     <Styles.Container>
       <FlexDiv alignItems="center">
-        <img src={logo} />
-        <h2>{title}</h2>
+        <h2><span>Onde</span> Assistir <Icon variant="play" color={theme.white} size={27} /> Online</h2>
       </FlexDiv>
     </Styles.Container>
   );

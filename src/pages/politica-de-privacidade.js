@@ -8,7 +8,7 @@ const PoliticaDePrivacidade = () => {
   return (
     <Layout>
       <SEO title="Politica de Privacidade - Onde Assistir Online">
-        <link rel="canonical" href='/contato' />
+        <link rel="canonical" href='/politica-de-privacidade' />
       </SEO>
       <Bar marginBottom="0">
         <Container>

@@ -10,7 +10,7 @@ const NotFound = () => {
   return (
     <Layout>
       <SEO title="404 - Onde Assistir Online">
-        <link rel="canonical" href='/contato' />
+        <link rel="canonical" href='/404' />
       </SEO>
       <Bar marginBottom="0">
         <Container>

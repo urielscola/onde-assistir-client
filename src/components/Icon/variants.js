@@ -1,17 +1,19 @@
-import { SearchAlt, Menu, Filter } from 'styled-icons/boxicons-regular';
+import { Menu, Filter, Play, LoaderCircle } from 'styled-icons/boxicons-regular';
+import { Search } from 'styled-icons/evil';
 import { Close } from '@styled-icons/evaicons-solid';
-import { Algolia } from '@styled-icons/fa-brands';
 import { ChevronRight, ChevronDown, ChevronUp } from '@styled-icons/boxicons-solid';
 
 const options = {
-  search: SearchAlt,
+  search: Search,
   menu: Menu,
   close: Close,
-  algolia: Algolia,
+  menu: Menu,
   'arrow-right': ChevronRight,
   'arrow-down': ChevronDown,
   'arrow-up': ChevronUp,
-  filter: Filter
+  filter: Filter,
+  play: Play,
+  load: LoaderCircle
 };
 
 export default options;
