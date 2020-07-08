@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Container, FlexDiv, Spacing } from 'src/components';
+import { Container, FlexDiv, Spacing, Responsive } from 'src/components';
 import * as Styles from './styles';
 import SearchBar from './SearchBar';
 import Results from 'src/components/Search/Results';
@@ -12,24 +12,45 @@ const AboveFold = () => {
   return (
     <Styles.Container>
       <Container>
-        <FlexDiv
-          width="100%"
-          justifyContent="space-between"
-          alignItems="center"
-          flexDirection={isMobile ? 'column' : 'row'}
-        >
-          {isMobile && <Spacing appearence="small" />}
-          <div style={{ maxWidth: isMobile ? '100%' : '40%' }}>
-            <Styles.Title>
-              Descubra <b>onde assistir</b> o filme ou série que está procurando
-            </Styles.Title>
-            <SearchBar ResultComponent={Results} />
-            {isMobile ? <Spacing appearence="medium" /> : <Spacing appearence="x-large" />}
-            <Styles.Slogan><b>9</b> plataformas de streaming em uma só busca.</Styles.Slogan>
-          </div>
-          {isMobile && <Spacing appearence="small" />}
-          <Styles.Providers src={providers} />
-        </FlexDiv>
+        <Responsive.NotDesktop>
+          <FlexDiv
+            width="100%"
+            justifyContent="space-between"
+            alignItems="center"
+            flexDirection="column"
+          >
+            <Spacing appearence="small" />
+            <div style={{ maxWidth: '100%' }}>
+              <Styles.Title>
+                Descubra <b>onde assistir</b> o filme ou série que está procurando
+              </Styles.Title>
+              <SearchBar ResultComponent={Results} />
+              <Spacing appearence="medium" />
+              <Styles.Slogan><b>9</b> plataformas de streaming em uma só busca.</Styles.Slogan>
+            </div>
+            <Spacing appearence="small" />
+            <Styles.Providers src={providers} />
+          </FlexDiv>
+        </Responsive.NotDesktop>
+
+        <Responsive.Desktop>
+          <FlexDiv
+            width="100%"
+            justifyContent="space-between"
+            alignItems="center"
+            flexDirection="row"
+          >
+            <div style={{ maxWidth: '40%' }}>
+              <Styles.Title>
+                Descubra <b>onde assistir</b> o filme ou série que está procurando
+              </Styles.Title>
+              <SearchBar ResultComponent={Results} />
+              <Spacing appearence="x-large" />
+              <Styles.Slogan><b>9</b> plataformas de streaming em uma só busca.</Styles.Slogan>
+            </div>
+            <Styles.Providers src={providers} />
+          </FlexDiv>
+        </Responsive.Desktop>
       </Container>
     </Styles.Container>
   );

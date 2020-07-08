@@ -1,56 +1,46 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 const realFs = require('fs');
 const gracefulFs = require('graceful-fs');
 gracefulFs.gracefulify(realFs);
 const path = require(`path`);
+const axios = require('axios');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const template = path.resolve(`src/templates/item.js`);
-  const results = await graphql(`
-    query {
-      items: allMongodbTestItems(limit:100000) {
-        edges {
-          node {
-            id
-            slug
-            title
-            tags
-            type
-            cast
-            year
-            runtime
-            description
-            cover
-            seasons
-            sources {
-              name
-              url
-              value
-            }
-            ratings {
-              name
-              url
-              value
-              count
-            }
-          }
+
+  let maxPages = 1;
+
+  for (let i = 1; i <= maxPages; i++) {
+    console.log({ i, maxPages });
+
+    try {
+      const { data } = await axios({
+        method: 'GET',
+        url: `${process.env.GATSBY_API_URL}/item/deploy`,
+        headers: {
+          page: i,
+          per_page: 10000,
+          'x-key': process.env.DEPLOY_KEY
         }
+      });
+
+      if (i === 1) maxPages = data.pages;
+
+      for (let j = 0; j < data.list.length; j++) {
+        createPage({
+          path: '/' + data.list[j].slug,
+          component: template,
+          context: {
+            item: data.list[j],
+          },
+        });
       }
+      
+    } catch (err) {
+      console.log(err);
     }
-  `);
-
-  if (results.errors) {
-    throw results.errors;
-  }
-
-  const items = results.data.items.edges;
-  for (let i = 0; i < items.length; i++) {
-    createPage({
-      path: '/' + items[i].node.slug,
-      component: template,
-      context: {
-        item: items[i].node,
-      },
-    });
-  }
+  }   
 };

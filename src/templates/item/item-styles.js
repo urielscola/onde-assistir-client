@@ -71,6 +71,10 @@ export const Description = styled.p`
   line-height: 1.5;
 `; 
 
+export const MainImage = styled.div`
+  min-height: 280px;
+`;
+
 export const SourceLink = styled.div`
   background-color: ${({ isBestDeal, theme }) => isBestDeal ? theme.brandPrimary : theme.fontSecundaryLighten};
   text-transform: uppercase;
@@ -137,6 +141,7 @@ export const Ratings = styled.div`
 
   img {
     margin-right: 5px;
+    border-radius: 5px;
     width: 20px;
   }
 

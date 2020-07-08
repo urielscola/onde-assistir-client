@@ -20,7 +20,7 @@ const Infos = ({ payload }) => (
       <LabelValue
         isTags
         label="Categorias"
-        value={payload.tags.map(tag => <span>{tag}</span>)}
+        value={payload.tags.map(tag => <span key={tag}>{tag}</span>)}
       />
     )}
 

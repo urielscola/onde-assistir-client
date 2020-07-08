@@ -33,11 +33,14 @@ const ItemDesktop = ({ payload, related, validSources }) => {
             <FlexDiv>
               <Styles.Column maxWidth="200px">
                 <FlexDiv flexDirection="column">
-                  <Image
-                    alt={payload.title}
-                    src={image}
-                    placeholder={placeholder}
-                  />
+                  <Styles.MainImage>
+                    <Image
+                      alt={payload.title}
+                      src={image}
+                      placeholder={placeholder}
+                    />
+                  </Styles.MainImage>
+
                   <Spacing appearence="small" />
 
                   <Infos payload={payload} />
