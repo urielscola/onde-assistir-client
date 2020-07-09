@@ -88,8 +88,12 @@ const Cathalog = props => {
           <Spacing appearence="small" />
         </Container>
       </Bar>
-      <Filters.Bar count={items.count.toLocaleString()} />
-      <Filters.Desktop filters={filters} handleChange={handleChange} />
+      <Responsive.NotDesktop>
+        <Filters.Bar count={items.count.toLocaleString()} />
+      </Responsive.NotDesktop>
+      <Responsive.Desktop>
+        <Filters.Desktop filters={filters} handleChange={handleChange} />
+      </Responsive.Desktop>
       <Container>
         <Responsive.Desktop>
           <Spacing appearence="large" />

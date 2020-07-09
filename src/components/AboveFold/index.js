@@ -57,20 +57,3 @@ const AboveFold = () => {
 };
 
 export default AboveFold;
-
-
-
-
-{/* <Responsive.NotDesktop>
-<Styles.Container>
-  <Styles.Providers src={providers} />
-</Styles.Container>
-<Container>
-  <Styles.Title>
-    Descubra <b>onde assistir</b> o filme ou série que está procurando
-  </Styles.Title>
-  <SearchBar ResultComponent={Results} />
-</Container>
-</Responsive.NotDesktop>
-<Responsive.Desktop>
-      </Responsive.Desktop> */}
