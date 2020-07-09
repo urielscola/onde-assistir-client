@@ -13,7 +13,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   let maxPages = 1;
 
-  for (let i = 1; i <= /* maxPages */ 7; i++) {
+  for (let i = 1; i <= maxPages; i++) {
     console.log({ i, maxPages });
 
     try {
