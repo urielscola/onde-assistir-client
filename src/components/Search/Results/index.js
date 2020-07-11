@@ -20,7 +20,7 @@ const Results = ({ showResults, results, loading, setShowResults }) => {
                 <Styles.ResultImage>
                   <Thumb thumb={result} showInfo={false} />
                 </Styles.ResultImage>
-                <Link to={result.slug}>
+                <Link to={`/${result.slug}`}>
                   <Styles.ResultInfo>
                     <p>{result.title}</p>
                   </Styles.ResultInfo>
