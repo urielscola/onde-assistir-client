@@ -18,7 +18,6 @@ export const Container = styled.section`
 
 export const Providers = styled.img`
   position: relative;
-  z-index: 1;
 
   ${medias.greaterThan('md')`
     max-width: 500px;
