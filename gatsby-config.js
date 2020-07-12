@@ -3,6 +3,7 @@ require('dotenv').config({
 });
 
 const plugins = [
+  `gatsby-plugin-remove-fingerprints`,
   `gatsby-plugin-react-helmet`,
   {
     resolve: `gatsby-source-filesystem`,
