@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Header, Footer, MobileMenu, Search } from '../index';
+import { Header, Footer, MobileMenu, Search, CookieBar } from '../index';
 import { GlobalStyles, theme } from 'src/assets/styles';
 import { ApplicationProvider } from 'src/contexts/application';
 
@@ -28,6 +28,7 @@ const Layout = ({ children }) => {
           <Footer />
           <MobileMenu />
           <Search />
+          <CookieBar />
         </ThemeProvider>
       </ApplicationProvider>
     </>

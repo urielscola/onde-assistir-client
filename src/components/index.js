@@ -29,3 +29,4 @@ export { default as Button } from './Button';
 export { default as AboveFold } from './AboveFold';
 export { default as Categories } from './Categories';
 export { default as PlayButton } from './PlayButton';
+export { default as CookieBar } from './CookieBar';
