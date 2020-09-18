@@ -15,6 +15,8 @@ const sourcesImages = {
   'HBO Go': 'logos/hbo-go_large.png',
 };
 
+const AMAZON_AFFILIATE = 'https://amzn.to/33CV2Ae';
+
 const Sources = ({ sources }) =>  {
   return (
     <FlexDiv flexDirection="column">
@@ -35,7 +37,7 @@ const Sources = ({ sources }) =>  {
                     </h4>
                   </Pricing>
                 </div>
-                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                <a href={source.name === 'Amazon Prime Video' ? AMAZON_AFFILIATE : source.url} target="_blank">
                   <SourceLink isBestDeal={index === 0}>
                     {index === 0 ? 'Assista agora' : 'Saiba mais'}
                   </SourceLink>
